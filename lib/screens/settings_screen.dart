@@ -16,74 +16,72 @@ class _SettingScreenState extends State<SettingScreen> {
 
     return Scaffold(
       body: Container(
-        height: size.height,
+        height: size.height*0.9,
         width: size.width,
         color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              height: 25,
-              color: Styles.greenColor,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text('Settings', style: Styles.largeText),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 26,
-                  backgroundColor: Styles.greenColor,
-                  child: CircleAvatar(
-                    radius: 25,
-                    backgroundImage: AssetImage('images/img2.jpg'),
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text('SETTINGS', style: Styles.largeText),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 26,
+                    backgroundColor: Styles.greenColor,
+                    child: CircleAvatar(
+                      radius: 25,
+                      backgroundImage: AssetImage('assets/images/img2.jpg'),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'Deepak Joshi',
+                    style: Styles.mediumText,
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+                child: Container(
+                  color: Colors.white,
+                  height: size.height * 0.65,
+                  width: size.width,
+                  child: Column(
+                    children: [
+                      MyListile(myIcon: Icons.person, myText: 'My Consultation'),
+                      MyListile(
+                          myIcon: Icons.card_giftcard,
+                          myText: 'My Orders Status'),
+                      MyListile(
+                          myIcon: Icons.house_siding,
+                          myText: 'My Hospital Appointments'),
+                      MyListile(myIcon: Icons.car_rental, myText: 'Trip Details'),
+                      MyListile(
+                          myIcon: Icons.phone, myText: 'Emergency Contacts'),
+                      MyListile(
+                          myIcon: Icons.local_offer_outlined,
+                          myText: 'Coupons & Offers'),
+                      MyListile(myIcon: Icons.share, myText: 'Shares'),
+                      MyListile(myIcon: Icons.logout, myText: 'Logout'),
+                    ],
                   ),
                 ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  'Deepak Joshi',
-                  style: Styles.mediumText,
-                )
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
-              child: Container(
-                color: Colors.white,
-                height: size.height * 0.70,
-                width: size.width,
-                child: Column(
-                  children: [
-                    MyListile(myIcon: Icons.person, myText: 'My Consultation'),
-                    MyListile(
-                        myIcon: Icons.card_giftcard,
-                        myText: 'My Orders Status'),
-                    MyListile(
-                        myIcon: Icons.house_siding,
-                        myText: 'My Hospital Appointments'),
-                    MyListile(myIcon: Icons.car_rental, myText: 'Trip Details'),
-                    MyListile(
-                        myIcon: Icons.phone, myText: 'Emergency Contacts'),
-                    MyListile(
-                        myIcon: Icons.local_offer_outlined,
-                        myText: 'Coupons & Offers'),
-                    MyListile(myIcon: Icons.share, myText: 'Shares'),
-                    MyListile(myIcon: Icons.logout, myText: 'Logout'),
-                  ],
-                ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -99,7 +97,7 @@ class MyListile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
+      height: 55,
       child: ListTile(
         leading: Icon(
           myIcon,
