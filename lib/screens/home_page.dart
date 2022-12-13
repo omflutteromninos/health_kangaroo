@@ -3,6 +3,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hk/screens/ambulance_screen.dart';
+import 'package:hk/screens/appointment_screen.dart';
 import 'package:hk/screens/lab_test_screen.dart';
 import 'package:hk/utils/app_styles.dart';
 import 'package:hk/widgets/health_card_widget.dart';
@@ -12,6 +14,7 @@ import 'package:hk/widgets/left_heading_widget.dart';
 import 'package:hk/widgets/tracker_card_widget.dart';
 
 import '../widgets/home_card_widget3.dart';
+import 'mediciens_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,11 +34,12 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
 ];
 final List<Widget> imageSliders = imgList
-    .map((item) => Container(
+    .map((item) => Card(
           child: ClipRRect(
               child: Stack(
             children: <Widget>[
               Image.network(
+                height: 150,
                 item,
                 fit: BoxFit.cover,
                 width: 600,
@@ -114,25 +118,43 @@ class _HomePageState extends State<HomePage> {
                           'Safe & hygienic',
                           Styles.yellowColor),
                     ),
-                    HomeCard(
-                        'assets/icons/8.png',
-                        Styles.purpleColor,
-                        Styles.purpleColor,
-                        'Buy Medicines',
-                        'Doorstep Delivery',
-                        Styles.purpleColor),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MedicineScreen(),
+                            ));
+                      },
+                      child: HomeCard(
+                          'assets/icons/8.png',
+                          Styles.purpleColor,
+                          Styles.purpleColor,
+                          'Buy Medicines',
+                          'Doorstep Delivery',
+                          Styles.purpleColor),
+                    ),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    HomeCard2(
-                        'assets/icons/7.png',
-                        Styles.blueColor,
-                        Styles.blueColor,
-                        'Dr. Appointment',
-                        'Online Doctors 24/7',
-                        Styles.blueColor),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AppointmentScreen(),
+                            ));
+                      },
+                      child: HomeCard2(
+                          'assets/icons/7.png',
+                          Styles.blueColor,
+                          Styles.blueColor,
+                          'Dr. Appointment',
+                          'Online Doctors 24/7',
+                          Styles.blueColor),
+                    ),
                     HomeCard2(
                         'assets/icons/6.png',
                         Styles.greenColor,
@@ -145,13 +167,22 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    HomeCard3(
-                        'assets/icons/ambulance.png',
-                        Styles.redColor,
-                        Styles.redColor,
-                        'Dr. Appointment',
-                        'Serve to save life',
-                        Styles.redColor),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AmbulanceScreen(),
+                            ));
+                      },
+                      child: HomeCard3(
+                          'assets/icons/ambulance.png',
+                          Styles.redColor,
+                          Styles.redColor,
+                          'Ambulance',
+                          'Serve to save life',
+                          Styles.redColor),
+                    ),
                     HomeCard3(
                         'assets/icons/15.png',
                         Styles.lightBlueColor,
@@ -163,50 +194,58 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Gap(20),
                 Container(
-                  width: MediaQuery.of(context).size.width,
+                  height: 150,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                  width: MediaQuery.of(context).size.width * 0.85,
                   // height: 300,
                   child: Stack(children: [
-                    CarouselSlider(
-                      items: imageSliders,
-                      carouselController: _controller,
-                      options: CarouselOptions(
-                          height: 150,
-                          disableCenter: true,
-                          autoPlay: true,
-                          // enlargeCenterPage: true,
-                          aspectRatio: 4.0,
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                              _current = index;
-                            });
-                          }),
-                    ),
-                    Positioned(
-                      left: MediaQuery.of(context).size.width / 4,
-                      bottom: 10,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: imgList.asMap().entries.map((entry) {
-                          return GestureDetector(
-                            onTap: () => _controller.animateToPage(entry.key),
-                            child: Container(
-                              width: 12.0,
-                              height: 12.0,
-                              margin: EdgeInsets.symmetric(
-                                  vertical: 0.0, horizontal: 4.0),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: (Theme.of(context).brightness ==
-                                              Brightness.dark
-                                          ? Color.fromARGB(255, 255, 255, 255)
-                                          : Color.fromARGB(255, 255, 255, 255))
-                                      .withOpacity(
-                                          _current == entry.key ? 0.9 : 0.4)),
-                            ),
-                          );
-                        }).toList(),
+                    Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      child: CarouselSlider(
+                        items: imageSliders,
+                        carouselController: _controller,
+                        options: CarouselOptions(
+                            viewportFraction: 1,
+                            height: 150,
+                            disableCenter: true,
+                            autoPlay: true,
+                            // enlargeCenterPage: true,
+                            aspectRatio: 4.0,
+                            onPageChanged: (index, reason) {
+                              setState(() {
+                                _current = index;
+                              });
+                            }),
                       ),
                     ),
+                    // Positioned(
+                    //   left: MediaQuery.of(context).size.width / 4,
+                    //   bottom: 10,
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: imgList.asMap().entries.map((entry) {
+                    //       return GestureDetector(
+                    //         onTap: () => _controller.animateToPage(entry.key),
+                    //         child: Container(
+                    //           width: 12.0,
+                    //           height: 12.0,
+                    //           margin: EdgeInsets.symmetric(
+                    //               vertical: 0.0, horizontal: 4.0),
+                    //           decoration: BoxDecoration(
+                    //               shape: BoxShape.circle,
+                    //               color: (Theme.of(context).brightness ==
+                    //                           Brightness.dark
+                    //                       ? Color.fromARGB(255, 255, 255, 255)
+                    //                       : Color.fromARGB(255, 255, 255, 255))
+                    //                   .withOpacity(
+                    //                       _current == entry.key ? 0.9 : 0.4)),
+                    //         ),
+                    //       );
+                    //     }).toList(),
+                    //   ),
+                    // ),
                   ]),
                 ),
                 const Divider(
