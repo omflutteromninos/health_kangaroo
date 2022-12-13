@@ -9,7 +9,7 @@ import 'package:hk/utils/app_styles.dart';
 void main() {
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.blue, // navigation bar color
+    systemNavigationBarColor: Styles.greenColor, // navigation bar color
     statusBarColor: Styles.greenColor, // status bar color
   ));
 }
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Health kangaroo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.green,
         ),
-        home: const SettingScreen());
+        home: const BottomNav());
   }
 }
