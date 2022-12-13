@@ -166,22 +166,20 @@ class _HomePageState extends State<HomePage> {
                   width: MediaQuery.of(context).size.width,
                   // height: 300,
                   child: Stack(children: [
-                    Expanded(
-                      child: CarouselSlider(
-                        items: imageSliders,
-                        carouselController: _controller,
-                        options: CarouselOptions(
-                            height: 150,
-                            disableCenter: true,
-                            autoPlay: true,
-                            // enlargeCenterPage: true,
-                            aspectRatio: 4.0,
-                            onPageChanged: (index, reason) {
-                              setState(() {
-                                _current = index;
-                              });
-                            }),
-                      ),
+                    CarouselSlider(
+                      items: imageSliders,
+                      carouselController: _controller,
+                      options: CarouselOptions(
+                          height: 150,
+                          disableCenter: true,
+                          autoPlay: true,
+                          // enlargeCenterPage: true,
+                          aspectRatio: 4.0,
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                              _current = index;
+                            });
+                          }),
                     ),
                     Positioned(
                       left: MediaQuery.of(context).size.width / 4,
