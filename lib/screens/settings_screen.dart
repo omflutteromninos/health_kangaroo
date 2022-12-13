@@ -28,7 +28,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Text('SETTINGS by me', style: Styles.largeText),
+              child: Text('Settings', style: Styles.largeText),
             ),
             SizedBox(
               height: 10,

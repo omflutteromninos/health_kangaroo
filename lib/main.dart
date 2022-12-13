@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hk/screens/bottom_nav.dart';
 import 'package:hk/screens/home_page.dart';
+import 'package:hk/screens/mediciens_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,6 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const BottomNav());
+        home: const MedicineScreen());
   }
 }

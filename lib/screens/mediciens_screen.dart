@@ -154,59 +154,53 @@ class _MedicineScreenState extends State<MedicineScreen> {
                         ),
                       ),
                     ),
-                    Container(
-                      height: 170,
-                      width: size.width,
-                      child: Column(children: [
-                        Stack(
-                          children: [
-                            Container(
-                              height: 170,
-                              width: size.width,
-                              child: CarouselSlider(
-                                items: imageSliders,
-                                carouselController: _controller,
-                                options: CarouselOptions(
-                                    autoPlay: true,
-                                    enlargeCenterPage: false,
-                                    aspectRatio: 2.0,
-                                    onPageChanged: (index, reason) {
-                                      setState(() {
-                                        _current = index;
-                                      });
-                                    }),
+                    Column(children: [
+                      Stack(
+                        children: [
+                          CarouselSlider(
+                            items: imageSliders,
+                            carouselController: _controller,
+                            options: CarouselOptions(
+                                viewportFraction: 1,
+                                aspectRatio: 16/9,
+                                height: 200,
+                                autoPlay: true,
+                                enlargeCenterPage: true,
+                                onPageChanged: (index, reason) {
+                                  setState(() {
+                                    _current = index;
+                                  });
+                                }),
+                          ),
+                          Positioned(
+                            bottom: 10,
+                            right: size.width*0.35,
+                            child: Center(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: imgList.asMap().entries.map((entry) {
+                                  return GestureDetector(
+                                    onTap: () => _controller.animateToPage(entry.key),
+                                    child: Container(
+                                      width: 12.0,
+                                      height: 12.0,
+                                      margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: (Theme.of(context).brightness == Brightness.dark
+                                              ? Colors.white
+                                              : Colors.black)
+                                              .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                                    ),
+                                  );
+                                }).toList(),
                               ),
                             ),
-                            Positioned(
-                              bottom: 10,
-                              right: size.width*0.35,
-                              child: Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: imgList.asMap().entries.map((entry) {
-                                    return GestureDetector(
-                                      onTap: () => _controller.animateToPage(entry.key),
-                                      child: Container(
-                                        width: 12.0,
-                                        height: 12.0,
-                                        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                                        decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: (Theme.of(context).brightness == Brightness.dark
-                                                ? Colors.white
-                                                : Colors.black)
-                                                .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-                                      ),
-                                    );
-                                  }).toList(),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
+                      ),
 
-                      ]),
-                    ),
+                    ]),
                   ],
                 )
               ),
