@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+import '../utils/app_styles.dart';
+
+class AmbulanceContainer extends StatelessWidget {
+  AmbulanceContainer(this.leftImageUrl, this.middleText, this.middleTextColor,
+      this.rightImageUrl);
+  String leftImageUrl;
+  String middleText;
+  Color middleTextColor;
+  String rightImageUrl;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.12,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50),
+          border:
+              Border.all(width: 5, color: Color.fromARGB(34, 182, 173, 173))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Image(
+            image: AssetImage(
+              leftImageUrl,
+            ),
+            color: Colors.red,
+            height: 35,
+          ),
+          Text(
+            middleText,
+            style: TextStyle(
+                color: middleTextColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 20),
+          ),
+          Container(
+            padding: EdgeInsets.all(9),
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+                color: Styles.redColor,
+                borderRadius: BorderRadius.circular(30)),
+            child: Image(
+              image: AssetImage(
+                rightImageUrl,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
