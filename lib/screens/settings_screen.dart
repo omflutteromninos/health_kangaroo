@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hk/screens/my_order_screen.dart';
 import 'package:hk/screens/setting_hospital_booking_screen.dart';
 import 'package:hk/screens/setting_my_consultation_Screen.dart';
 
@@ -18,7 +19,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
     return Scaffold(
       body: Container(
-        height: size.height*0.9,
+        height: size.height * 0.9,
         width: size.width,
         color: Colors.white,
         child: SafeArea(
@@ -52,7 +53,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Padding(
@@ -63,29 +64,65 @@ class _SettingScreenState extends State<SettingScreen> {
                   width: size.width,
                   child: Column(
                     children: [
-                      MyListile(myIcon: Icons.person, myText: 'My Consultation', ontap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                         return MyConsult();
-                        }));
-                      },),
                       MyListile(
+                        myIcon: Icons.person,
+                        myText: 'My Consultation',
+                        ontap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const MyConsult();
+                          }));
+                        },
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MyOrderScreen(),
+                              ));
+                        },
+                        child: MyListile(
                           myIcon: Icons.card_giftcard,
-                          myText: 'My Orders Status', ontap: () {  },),
+                          myText: 'My Orders Status',
+                          ontap: () {},
+                        ),
+                      ),
                       MyListile(
-                          myIcon: Icons.house_siding,
-                          myText: 'My Hospital Appointments', ontap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                          return HospitalScreen();
-                        }));
-                      },),
-                      MyListile(myIcon: Icons.car_rental, myText: 'Trip Details', ontap: () {  },),
+                        myIcon: Icons.house_siding,
+                        myText: 'My Hospital Appointments',
+                        ontap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return HospitalScreen();
+                          }));
+                        },
+                      ),
                       MyListile(
-                          myIcon: Icons.phone, myText: 'Emergency Contacts', ontap: () {  },),
+                        myIcon: Icons.car_rental,
+                        myText: 'Trip Details',
+                        ontap: () {},
+                      ),
                       MyListile(
-                          myIcon: Icons.local_offer_outlined,
-                          myText: 'Coupons & Offers', ontap: () {  },),
-                      MyListile(myIcon: Icons.share, myText: 'Shares', ontap: () {  },),
-                      MyListile(myIcon: Icons.logout, myText: 'Logout', ontap: () {  },),
+                        myIcon: Icons.phone,
+                        myText: 'Emergency Contacts',
+                        ontap: () {},
+                      ),
+                      MyListile(
+                        myIcon: Icons.local_offer_outlined,
+                        myText: 'Coupons & Offers',
+                        ontap: () {},
+                      ),
+                      MyListile(
+                        myIcon: Icons.share,
+                        myText: 'Shares',
+                        ontap: () {},
+                      ),
+                      MyListile(
+                        myIcon: Icons.logout,
+                        myText: 'Logout',
+                        ontap: () {},
+                      ),
                     ],
                   ),
                 ),
@@ -99,7 +136,11 @@ class _SettingScreenState extends State<SettingScreen> {
 }
 
 class MyListile extends StatelessWidget {
-  MyListile({Key? key, required this.myIcon, required this.myText,required this.ontap})
+  MyListile(
+      {Key? key,
+      required this.myIcon,
+      required this.myText,
+      required this.ontap})
       : super(key: key);
   IconData myIcon;
   String myText;
