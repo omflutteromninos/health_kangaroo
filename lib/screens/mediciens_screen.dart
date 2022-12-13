@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_controller.dart';
+import 'package:flutter/src/rendering/box.dart';
 
 import '../utils/app_styles.dart';
+import 'lab_test_upload_screen.dart';
 class MedicineScreen extends StatefulWidget {
   const MedicineScreen({Key? key}) : super(key: key);
 
@@ -30,7 +32,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
             child: Stack(
               children: <Widget>[
-                Image.network(item, fit: BoxFit.fill),
+                Image.network(item, fit: BoxFit.fitWidth),
                 Positioned(
                   bottom: 0.0,
                   left: 0.0,
@@ -56,26 +58,26 @@ class _MedicineScreenState extends State<MedicineScreen> {
 
 
     return Scaffold(
-        body: Center(
+        body: SafeArea(
           child: Column(
             children: [
-              Container(
-                height: 25,
-                color: Styles.greenColor,
-              ),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
                 height: 50,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(width: 15,),
-                    Icon(Icons.arrow_back),
-                    SizedBox(width: 100,),
+                   Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: Icon(Icons.arrow_back),
+                   ),
                     Text('Medicine',style: Styles.mediumText),
-                    SizedBox(width: 100,),
-                    Icon(Icons.add_shopping_cart),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(Icons.add_shopping_cart),
+                    ),
 
                   ],
                 ),
@@ -136,13 +138,20 @@ class _MedicineScreenState extends State<MedicineScreen> {
                                       Text('what you need.We do the rest!',style: Styles.graySmallText,),
                                     ],
                                   ),
-                                  Container(
-                                    child: Center(child: Text('Upload',style: Styles.whiteText,)),
-                                    height: 40,
-                                    width: 90,
-                                    decoration: BoxDecoration(
-                                      color: Styles.greenColor,
-                                      borderRadius: BorderRadius.circular(20)
+                                  InkWell(
+                                    onTap: (){
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                                        return UploadScreen();
+                                      }));
+                                    },
+                                    child: Container(
+                                      child: Center(child: Text('Upload',style: Styles.whiteText,)),
+                                      height: 40,
+                                      width: 90,
+                                      decoration: BoxDecoration(
+                                        color: Styles.greenColor,
+                                        borderRadius: BorderRadius.circular(20)
+                                      ),
                                     ),
                                   )
 
@@ -154,6 +163,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 10,),
                     Column(children: [
                       Stack(
                         children: [
@@ -162,7 +172,6 @@ class _MedicineScreenState extends State<MedicineScreen> {
                             carouselController: _controller,
                             options: CarouselOptions(
                                 viewportFraction: 1,
-                                aspectRatio: 16/9,
                                 height: 200,
                                 autoPlay: true,
                                 enlargeCenterPage: true,
@@ -201,11 +210,73 @@ class _MedicineScreenState extends State<MedicineScreen> {
                       ),
 
                     ]),
+                    SizedBox(height: 10,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Popular Categories',style: Styles.mediumText,),
+                        Text('See All',style: Styles.smallText,)
+                      ],
+                    ),
+                    SizedBox(height: 10,),
+                    Container(
+                      height: size.height*0.25,
+                      child: SingleChildScrollView(
+                        child: Container(
+                          height: size.height*0.25,
+                          child: GridView.count(
+                            childAspectRatio: 0.9,
+                            primary: false,
+                            crossAxisCount: 4,
+                            children: <Widget>[
+                              PopularCategories(imagePath: 'assets/images/img2.jpg', textName: 'Vitamins & \n Suppliments'),
+                              PopularCategories(imagePath: 'assets/images/img1.jpg', textName: 'Stress & \n Anxiety'),
+                              PopularCategories(imagePath: 'assets/images/img3.jpg', textName: 'Bones & \n Joints'),
+                              PopularCategories(imagePath: 'assets/images/img1.jpg', textName: 'Diabetes'),
+                              PopularCategories(imagePath: 'assets/images/img1.jpg', textName: 'Stomach & \n Pains'),
+                              PopularCategories(imagePath: 'assets/images/img2.jpg', textName: 'Pimples & \n Ance'),
+                              PopularCategories(imagePath: 'assets/images/img2.jpg', textName: 'Hair & \n Scalp'),
+                              PopularCategories(imagePath: 'assets/images/img2.jpg', textName: 'Sexual \n Disorder'),
+                              PopularCategories(imagePath: 'assets/images/img2.jpg', textName: 'Suppliments'),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+
+
                   ],
                 )
               ),
+
             ],
           ),
         ));
+  }
+}
+
+
+class PopularCategories extends StatelessWidget {
+  PopularCategories({Key? key,required this.imagePath,required this.textName}) : super(key: key);
+  String imagePath;
+  String textName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        CircleAvatar(
+          radius: 25,
+          backgroundImage: AssetImage(imagePath),
+        ),
+        SizedBox(height: 5,),
+        Text(textName,
+          style: TextStyle(fontSize: 10),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
   }
 }
