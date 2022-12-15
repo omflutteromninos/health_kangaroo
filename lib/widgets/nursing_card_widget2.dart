@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 
 import '../utils/app_styles.dart';
 
-// ignore: must_be_immutable
-class AppointmentCardWidget extends StatelessWidget {
-  AppointmentCardWidget(this.imageUrl, this.bottomText, {super.key});
+class NursingCardWidget2 extends StatelessWidget {
+  NursingCardWidget2(this.imageUrl, this.heading, {super.key});
   String imageUrl;
-  String bottomText;
+  String heading;
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-        height: MediaQuery.of(context).size.height * 0.18,
-        width: MediaQuery.of(context).size.width * 0.25,
+        height: MediaQuery.of(context).size.height * 0.28,
+        width: MediaQuery.of(context).size.width * 0.35,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.12,
+              height: MediaQuery.of(context).size.height * 0.22,
               child: Image(
                 image: NetworkImage(imageUrl),
                 fit: BoxFit.cover,
@@ -35,7 +35,7 @@ class AppointmentCardWidget extends StatelessWidget {
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20))),
               child: Text(
-                bottomText,
+                heading,
                 style: const TextStyle(color: Colors.white, fontSize: 10),
                 textAlign: TextAlign.center,
               ),

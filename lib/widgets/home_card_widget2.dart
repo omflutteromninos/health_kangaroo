@@ -4,9 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/app_styles.dart';
 
+// ignore: must_be_immutable
 class HomeCard2 extends StatelessWidget {
   HomeCard2(this.iconImage, this.iconBgColor, this.errowBgColor, this.heading,
-      this.bottomText, this.textBgColor);
+      this.bottomText, this.textBgColor,
+      {super.key});
   String iconImage;
   Color iconBgColor;
   Color errowBgColor;
@@ -22,7 +24,7 @@ class HomeCard2 extends StatelessWidget {
       ),
       child: Container(
           width: MediaQuery.of(context).size.width * 0.436,
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Row(
@@ -48,14 +50,14 @@ class HomeCard2 extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: iconBgColor,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_forward_ios_outlined,
                         color: Colors.white,
                         size: 14,
                       ))
                 ],
               ),
-              Gap(8),
+              const Gap(8),
               Align(
                   alignment: Alignment.centerLeft,
                   child: Text(heading,

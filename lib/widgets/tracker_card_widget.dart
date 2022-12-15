@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_styles.dart';
 
 class TrackerCard extends StatelessWidget {
-  TrackerCard(this.topText, this.middleIcon, this.bottomText);
+  TrackerCard(this.topText, this.middleIcon, this.bottomText, {super.key});
   String topText;
   String middleIcon;
   String bottomText;
@@ -16,7 +16,7 @@ class TrackerCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Container(
-          padding: EdgeInsets.all(5),
+          padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             border: Border.all(width: 3, color: Styles.greenColor),
@@ -36,7 +36,7 @@ class TrackerCard extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         color: Styles.greyColor, fontSize: 13),
                   ),
-                  Image(
+                  const Image(
                     image: AssetImage(
                       'assets/icons/13.png',
                     ),

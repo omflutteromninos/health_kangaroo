@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hk/utils/app_styles.dart';
@@ -16,46 +15,26 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        foregroundColor: Colors.black,
+        backgroundColor: Styles.bgColor,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text('Select Location'),
+            Icon(Icons.arrow_drop_down),
+            Text('   '),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
             color: Styles.bgColor,
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                Column(
-                  children: [
-                    const Gap(30),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Icon(
-                            Icons.arrow_back,
-                            size: 30,
-                          ),
-                        ),
-                        Row(
-                          children: const [
-                            Text(
-                              'Select Location',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal, fontSize: 20),
-                            ),
-                            Icon(
-                              Icons.arrow_drop_down,
-                              size: 30,
-                            )
-                          ],
-                        ),
-                        const Text('  ')
-                      ],
-                    ),
-                  ],
-                ),
-                const Gap(20),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   padding: const EdgeInsets.all(8),

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../utils/app_styles.dart';
-
 class AmbulanceContainer2 extends StatelessWidget {
-  AmbulanceContainer2(
-    this.leftImageUrl,
-    this.middleText,
-    this.middleTextColor,
-  );
+  AmbulanceContainer2(this.leftImageUrl, this.middleText, this.middleTextColor,
+      {super.key});
   String leftImageUrl;
   String middleText;
   Color middleTextColor;
@@ -19,8 +14,8 @@ class AmbulanceContainer2 extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(50),
-          border:
-              Border.all(width: 5, color: Color.fromARGB(34, 182, 173, 173))),
+          border: Border.all(
+              width: 5, color: const Color.fromARGB(34, 182, 173, 173))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -38,7 +33,7 @@ class AmbulanceContainer2 extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontSize: 20),
           ),
-          Text('')
+          const Text('')
         ],
       ),
     );

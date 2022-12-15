@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hk/screens/my_order_screen.dart';
 import 'package:hk/screens/setting_hospital_booking_screen.dart';
 import 'package:hk/screens/setting_my_consultation_Screen.dart';
@@ -18,33 +19,34 @@ class _SettingScreenState extends State<SettingScreen> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Container(
-        height: size.height * 0.9,
-        width: size.width,
-        color: Colors.white,
-        child: SafeArea(
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
+        title: const Text('Settings'),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: size.width,
+          color: Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text('SETTINGS', style: Styles.largeText),
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              const Gap(10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
                     radius: 26,
                     backgroundColor: Styles.greenColor,
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       radius: 25,
-                      backgroundImage: AssetImage('assets/images/img2.jpg'),
+                      backgroundImage: NetworkImage(
+                          'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(
@@ -60,7 +62,6 @@ class _SettingScreenState extends State<SettingScreen> {
                 padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
                 child: Container(
                   color: Colors.white,
-                  height: size.height * 0.65,
                   width: size.width,
                   child: Column(
                     children: [
@@ -79,7 +80,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MyOrderScreen(),
+                                builder: (context) => const MyOrderScreen(),
                               ));
                         },
                         child: MyListile(
@@ -94,7 +95,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         ontap: () {
                           Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
-                            return HospitalScreen();
+                            return const HospitalScreen();
                           }));
                         },
                       ),
@@ -148,7 +149,7 @@ class MyListile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 55,
       child: ListTile(
         leading: Icon(
@@ -161,7 +162,7 @@ class MyListile extends StatelessWidget {
           child: CircleAvatar(
             radius: 15,
             backgroundColor: Styles.greenColor,
-            child: Center(
+            child: const Center(
               child: Icon(
                 Icons.arrow_forward_ios_sharp,
                 size: 15,

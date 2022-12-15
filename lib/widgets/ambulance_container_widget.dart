@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app_styles.dart';
+// CODE BY ASHWANI
 
+// ignore: must_be_immutable
 class AmbulanceContainer extends StatelessWidget {
   AmbulanceContainer(this.leftImageUrl, this.middleText, this.middleTextColor,
-      this.rightImageUrl);
+      this.rightImageUrl,
+      {super.key});
   String leftImageUrl;
   String middleText;
   Color middleTextColor;
@@ -17,8 +20,8 @@ class AmbulanceContainer extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(50),
-          border:
-              Border.all(width: 5, color: Color.fromARGB(34, 182, 173, 173))),
+          border: Border.all(
+              width: 5, color: const Color.fromARGB(34, 182, 173, 173))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -37,7 +40,7 @@ class AmbulanceContainer extends StatelessWidget {
                 fontSize: 20),
           ),
           Container(
-            padding: EdgeInsets.all(9),
+            padding: const EdgeInsets.all(9),
             width: 50,
             height: 50,
             decoration: BoxDecoration(

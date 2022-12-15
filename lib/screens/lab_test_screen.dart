@@ -16,14 +16,14 @@ class _LabTestScreenState extends State<LabTestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color.fromARGB(0, 255, 255, 255),
+          backgroundColor: const Color.fromARGB(0, 255, 255, 255),
           foregroundColor: Colors.black,
           elevation: 0,
           actions: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,7 +59,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                     contentPadding: EdgeInsets.zero,
                     fillColor: Colors.white,
                     filled: true,
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(30)),
@@ -69,9 +69,9 @@ class _LabTestScreenState extends State<LabTestScreen> {
                     ),
                   ),
                 ),
-                Gap(20),
+                const Gap(20),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.1,
                   decoration: BoxDecoration(
@@ -100,13 +100,13 @@ class _LabTestScreenState extends State<LabTestScreen> {
                           ),
                         ],
                       ),
-                      Gap(10),
+                      const Gap(10),
                       InkWell(
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => UploadScreen(),
+                                builder: (context) => const UploadScreen(),
                               ));
                         },
                         child: Container(
@@ -116,13 +116,13 @@ class _LabTestScreenState extends State<LabTestScreen> {
                           decoration: BoxDecoration(
                               color: Styles.bgColor,
                               borderRadius: BorderRadius.circular(20)),
-                          child: Text('Upload'),
+                          child: const Text('Upload'),
                         ),
                       )
                     ],
                   ),
                 ),
-                Gap(20),
+                const Gap(20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -142,7 +142,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                     ),
                   ],
                 ),
-                Gap(20),
+                const Gap(20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -168,22 +168,21 @@ class _LabTestScreenState extends State<LabTestScreen> {
                     //set border radius more than 50% of height and width to make circle
                   ),
                   elevation: 5,
-                  child: Container(
-                      child: Column(
+                  child: Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         child: Row(
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                               radius: 40,
                               foregroundImage: NetworkImage(
                                   'https://images.unsplash.com/photo-1612523138351-4643808db8f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
                             ),
-                            Gap(10),
+                            const Gap(10),
                             Column(
                               children: [
-                                Container(
+                                SizedBox(
                                   width: 200,
                                   child: Row(
                                     mainAxisAlignment:
@@ -197,7 +196,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text('Amit Kumar'),
+                                          const Text('Amit Kumar'),
                                           Text('Shivajinagar Branch',
                                               style: TextStyle(
                                                   fontSize: 10,
@@ -224,7 +223,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                                     textAlign: TextAlign.start,
                                   ),
                                 ),
-                                Gap(20),
+                                const Gap(20),
                                 Container(
                                   width: 200,
                                   alignment: Alignment.centerLeft,
@@ -246,12 +245,11 @@ class _LabTestScreenState extends State<LabTestScreen> {
                         width: MediaQuery.of(context).size.width,
                         height: 50,
                         decoration: BoxDecoration(color: Styles.bgColor),
-                        child: Container(
-                            child: Row(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Row(
-                              children: [
+                              children: const [
                                 Icon(Icons.workspace_premium),
                                 Text(
                                   'NABL',
@@ -270,11 +268,11 @@ class _LabTestScreenState extends State<LabTestScreen> {
                               ],
                             ),
                           ],
-                        )),
+                        ),
                       ),
-                      Gap(20),
+                      const Gap(20),
                     ],
-                  )),
+                  ),
                 )
               ],
             )),

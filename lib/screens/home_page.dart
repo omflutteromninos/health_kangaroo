@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -6,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hk/screens/ambulance_screen.dart';
 import 'package:hk/screens/appointment_screen.dart';
 import 'package:hk/screens/lab_test_screen.dart';
+import 'package:hk/screens/nursing_services_screen.dart';
 import 'package:hk/utils/app_styles.dart';
 import 'package:hk/widgets/health_card_widget.dart';
 import 'package:hk/widgets/home_card_widget.dart';
@@ -27,78 +27,68 @@ final CarouselController _controller = CarouselController();
 
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
-  'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
-  'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
-  'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
-  'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
-  'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80',
 ];
 final List<Widget> imageSliders = imgList
-    .map((item) => Card(
-          child: ClipRRect(
-              child: Stack(
-            children: <Widget>[
-              Image.network(
-                height: 150,
-                item,
-                fit: BoxFit.cover,
-                width: 600,
-              ),
-            ],
-          )),
-        ))
+    .map((item) => ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.network(
+          height: 150,
+          item,
+          fit: BoxFit.cover,
+          width: 800,
+        )))
     .toList();
 
 class _HomePageState extends State<HomePage> {
+  // ignore: unused_field
   int _current = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Styles.bgColor,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: Colors.black,
+        actions: [
+          Container(
+            padding: const EdgeInsets.only(right: 10),
+            alignment: Alignment.centerRight,
+            width: 50,
+            child: const Icon(
+              Icons.notifications,
+              size: 30,
+              color: Colors.amber,
+            ),
+          ),
+        ],
+        leadingWidth: 80,
+        leading: Container(
+            padding: const EdgeInsets.only(left: 10),
+            child: const Image(image: AssetImage('assets/icons/hk_logo.png'))),
+        title: Column(
+          children: [
+            Text(
+              'Good Morning',
+              style: GoogleFonts.poppins(
+                  fontSize: 17,
+                  color: Styles.primaryColor,
+                  fontWeight: FontWeight.w600),
+            ),
+            const Text(
+              'Our Team',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
             color: Styles.bgColor,
             padding: const EdgeInsets.all(10),
             child: Column(
               children: [
-                const Gap(30),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.07,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: 70,
-                        child: const Image(
-                            image: AssetImage('assets/icons/hk_logo.png')),
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Good Morning',
-                            style: GoogleFonts.poppins(
-                                fontSize: 17,
-                                color: Styles.primaryColor,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          const Text('Our Team'),
-                        ],
-                      ),
-                      Container(
-                        alignment: Alignment.centerRight,
-                        width: 50,
-                        child: const Icon(
-                          Icons.notifications,
-                          size: 30,
-                          color: Colors.amber,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Gap(20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -107,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LabTestScreen(),
+                              builder: (context) => const LabTestScreen(),
                             ));
                       },
                       child: HomeCard(
@@ -123,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MedicineScreen(),
+                              builder: (context) => const MedicineScreen(),
                             ));
                       },
                       child: HomeCard(
@@ -144,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => AppointmentScreen(),
+                              builder: (context) => const AppointmentScreen(),
                             ));
                       },
                       child: HomeCard2(
@@ -155,13 +145,22 @@ class _HomePageState extends State<HomePage> {
                           'Online Doctors 24/7',
                           Styles.blueColor),
                     ),
-                    HomeCard2(
-                        'assets/icons/6.png',
-                        Styles.greenColor,
-                        Styles.greenColor,
-                        'Nursing Services',
-                        'Nursing Services 24/7',
-                        Styles.greenColor),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NursingScreen(),
+                            ));
+                      },
+                      child: HomeCard2(
+                          'assets/icons/6.png',
+                          Styles.greenColor,
+                          Styles.greenColor,
+                          'Nursing Services',
+                          'Nursing Services 24/7',
+                          Styles.greenColor),
+                    ),
                   ],
                 ),
                 Row(
@@ -172,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => AmbulanceScreen(),
+                              builder: (context) => const AmbulanceScreen(),
                             ));
                       },
                       child: HomeCard3(
@@ -192,61 +191,27 @@ class _HomePageState extends State<HomePage> {
                         Styles.lightBlueColor),
                   ],
                 ),
-                Gap(20),
-                Container(
-                  height: 150,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                const Gap(20),
+                SizedBox(
+                  // decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(30)),
                   width: MediaQuery.of(context).size.width * 0.85,
-                  // height: 300,
-                  child: Stack(children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      child: CarouselSlider(
-                        items: imageSliders,
-                        carouselController: _controller,
-                        options: CarouselOptions(
-                            viewportFraction: 1,
-                            height: 150,
-                            disableCenter: true,
-                            autoPlay: true,
-                            // enlargeCenterPage: true,
-                            aspectRatio: 4.0,
-                            onPageChanged: (index, reason) {
-                              setState(() {
-                                _current = index;
-                              });
-                            }),
-                      ),
-                    ),
-                    // Positioned(
-                    //   left: MediaQuery.of(context).size.width / 4,
-                    //   bottom: 10,
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.center,
-                    //     children: imgList.asMap().entries.map((entry) {
-                    //       return GestureDetector(
-                    //         onTap: () => _controller.animateToPage(entry.key),
-                    //         child: Container(
-                    //           width: 12.0,
-                    //           height: 12.0,
-                    //           margin: EdgeInsets.symmetric(
-                    //               vertical: 0.0, horizontal: 4.0),
-                    //           decoration: BoxDecoration(
-                    //               shape: BoxShape.circle,
-                    //               color: (Theme.of(context).brightness ==
-                    //                           Brightness.dark
-                    //                       ? Color.fromARGB(255, 255, 255, 255)
-                    //                       : Color.fromARGB(255, 255, 255, 255))
-                    //                   .withOpacity(
-                    //                       _current == entry.key ? 0.9 : 0.4)),
-                    //         ),
-                    //       );
-                    //     }).toList(),
-                    //   ),
-                    // ),
-                  ]),
+                  child: CarouselSlider(
+                    items: imageSliders,
+                    carouselController: _controller,
+                    options: CarouselOptions(
+                        viewportFraction: 1,
+                        height: 150,
+                        disableCenter: true,
+                        autoPlay: true,
+                        // enlargeCenterPage: true,
+                        aspectRatio: 4.0,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _current = index;
+                          });
+                        }),
+                  ),
                 ),
                 const Divider(
                   height: 20,

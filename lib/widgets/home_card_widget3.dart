@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../utils/app_styles.dart';
-
 class HomeCard3 extends StatelessWidget {
   HomeCard3(this.iconImage, this.iconBgColor, this.errowBgColor, this.heading,
-      this.bottomText, this.textBgColor);
+      this.bottomText, this.textBgColor,
+      {super.key});
   String iconImage;
   Color iconBgColor;
   Color errowBgColor;
@@ -22,14 +21,14 @@ class HomeCard3 extends StatelessWidget {
       ),
       child: Container(
           width: MediaQuery.of(context).size.width * 0.436,
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    padding: EdgeInsets.all(9),
+                    padding: const EdgeInsets.all(9),
                     width: 50,
                     height: 50,
                     decoration: BoxDecoration(
@@ -48,19 +47,19 @@ class HomeCard3 extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: iconBgColor,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_forward_ios_outlined,
                         color: Colors.white,
                         size: 14,
                       ))
                 ],
               ),
-              Gap(8),
+              const Gap(8),
               Align(
                   alignment: Alignment.centerLeft,
                   child: Text(heading,
                       style: GoogleFonts.poppins(fontWeight: FontWeight.w500))),
-              Gap(7),
+              const Gap(7),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(

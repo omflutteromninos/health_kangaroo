@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../utils/app_styles.dart';
-
+// ignore: must_be_immutable
 class AmbulanceContainer3 extends StatelessWidget {
-  AmbulanceContainer3(
-    this.middleText,
-    this.middleTextColor,
-  );
+  AmbulanceContainer3(this.middleText, this.middleTextColor, {super.key});
   String middleText;
   Color middleTextColor;
 
@@ -16,7 +12,7 @@ class AmbulanceContainer3 extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width * 0.85,
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black26)],
+        boxShadow: const [BoxShadow(blurRadius: 10, color: Colors.black26)],
         color: Colors.white,
         borderRadius: BorderRadius.circular(50),
       ),

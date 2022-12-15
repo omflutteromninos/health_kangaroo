@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hk/utils/app_styles.dart';
 
 class Buttonls extends StatelessWidget {
-  Buttonls({Key? key,required this.data}) : super(key: key);
+  Buttonls({Key? key, required this.data}) : super(key: key);
   String data;
 
   @override
@@ -13,20 +13,21 @@ class Buttonls extends StatelessWidget {
       width: double.infinity,
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(vertical: 12),
-      decoration: ShapeDecoration(shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(30)),
-      ),
+      decoration: ShapeDecoration(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30)),
+        ),
         color: Styles.greenColor,
       ),
-      child: Text(data, style: GoogleFonts.montserrat(
-        textStyle: TextStyle(
-          color: Color(0xfff5f5f5),
-          fontSize: 16,
-          fontFamily: "Montserrat",
-          fontWeight: FontWeight.w700,
-        ),
-      )),
-
+      child: Text(data,
+          style: GoogleFonts.montserrat(
+            textStyle: const TextStyle(
+              color: Color(0xfff5f5f5),
+              fontSize: 16,
+              fontFamily: "Montserrat",
+              fontWeight: FontWeight.w700,
+            ),
+          )),
     );
   }
 }

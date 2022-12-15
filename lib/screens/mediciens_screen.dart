@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:flutter/src/rendering/box.dart';
 
 import '../utils/app_styles.dart';
 import 'lab_test_upload_screen.dart';
@@ -26,24 +24,24 @@ class _MedicineScreenState extends State<MedicineScreen> {
     final size = MediaQuery.of(context).size;
 
     final List<Widget> imageSliders = imgList
-        .map((item) => Container(
+        .map((item) => SizedBox(
               width: 320,
               child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                   child: Image.network(item, fit: BoxFit.fitWidth)),
             ))
         .toList();
 
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Color.fromARGB(0, 255, 255, 255),
+            backgroundColor: const Color.fromARGB(0, 255, 255, 255),
             foregroundColor: Colors.black,
             elevation: 0,
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,33 +67,16 @@ class _MedicineScreenState extends State<MedicineScreen> {
             child: Column(
               children: [
                 Container(
-                    padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+                    padding:
+                        const EdgeInsets.only(top: 10, left: 15, right: 15),
                     height: size.height,
                     width: size.width,
                     child: Column(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.search,
-                                color: Styles.greenColor,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(
-                                'SEARCH MEDICINE',
-                                style: Styles.graySmallText,
-                              )
-                            ],
-                          ),
                           height: 45,
                           width: 300,
                           decoration: BoxDecoration(
@@ -110,15 +91,33 @@ class _MedicineScreenState extends State<MedicineScreen> {
                                 color: Colors.grey.shade300, width: 4),
                             borderRadius: BorderRadius.circular(22.5),
                           ),
+                          child: Row(
+                            children: [
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Icon(
+                                Icons.search,
+                                color: Styles.greenColor,
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Text(
+                                'SEARCH MEDICINE',
+                                style: Styles.graySmallText,
+                              )
+                            ],
+                          ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Card(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Container(
+                          child: SizedBox(
                             height: 110,
                             child: Padding(
                               padding: const EdgeInsets.only(
@@ -130,7 +129,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
                                     'Order Quickly with prescription',
                                     style: Styles.mediumText,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   Row(
@@ -158,21 +157,21 @@ class _MedicineScreenState extends State<MedicineScreen> {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) {
-                                            return UploadScreen();
+                                            return const UploadScreen();
                                           }));
                                         },
                                         child: Container(
-                                          child: Center(
-                                              child: Text(
-                                            'Upload',
-                                            style: Styles.whiteText,
-                                          )),
                                           height: 40,
                                           width: 90,
                                           decoration: BoxDecoration(
                                               color: Styles.greenColor,
                                               borderRadius:
                                                   BorderRadius.circular(20)),
+                                          child: Center(
+                                              child: Text(
+                                            'Upload',
+                                            style: Styles.whiteText,
+                                          )),
                                         ),
                                       )
                                     ],
@@ -187,7 +186,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Column(children: [
@@ -222,7 +221,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
                                         child: Container(
                                           width: 12.0,
                                           height: 12.0,
-                                          margin: EdgeInsets.symmetric(
+                                          margin: const EdgeInsets.symmetric(
                                               vertical: 8.0, horizontal: 4.0),
                                           decoration: BoxDecoration(
                                               shape: BoxShape.circle,
@@ -244,7 +243,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
                             ],
                           ),
                         ]),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -260,10 +259,10 @@ class _MedicineScreenState extends State<MedicineScreen> {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Container(
+                        SizedBox(
                           height: size.height * 0.26,
                           child: GridView.count(
                             childAspectRatio: 0.9,
@@ -309,6 +308,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
   }
 }
 
+// ignore: must_be_immutable
 class PopularCategories extends StatelessWidget {
   PopularCategories({Key? key, required this.imagePath, required this.textName})
       : super(key: key);
@@ -324,12 +324,12 @@ class PopularCategories extends StatelessWidget {
           radius: 25,
           backgroundImage: AssetImage(imagePath),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Text(
           textName,
-          style: TextStyle(fontSize: 10),
+          style: const TextStyle(fontSize: 10),
           textAlign: TextAlign.center,
         ),
       ],

@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/app_styles.dart';
 
+// ignore: must_be_immutable
 class HealthCard extends StatelessWidget {
-  HealthCard(this.imageUrl, this.heading, this.subheading);
+  HealthCard(this.imageUrl, this.heading, this.subheading, {super.key});
   String imageUrl;
   String heading;
   String subheading;
@@ -17,10 +18,10 @@ class HealthCard extends StatelessWidget {
         width: 150,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(5)),
-        padding: EdgeInsets.all(4),
+        padding: const EdgeInsets.all(4),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               width: 150,
               height: 60,
               child: Image(
@@ -28,12 +29,13 @@ class HealthCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            Gap(10),
+            const Gap(10),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 heading,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
             ),
             Flexible(
