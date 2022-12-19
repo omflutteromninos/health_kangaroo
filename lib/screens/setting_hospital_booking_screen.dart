@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hk/utils/app_styles.dart';
 
-class HospitalScreen extends StatefulWidget {
-  const HospitalScreen({Key? key}) : super(key: key);
+class HospitalBookingScreen extends StatefulWidget {
+  const HospitalBookingScreen({Key? key}) : super(key: key);
 
   @override
-  State<HospitalScreen> createState() => _HospitalScreenState();
+  State<HospitalBookingScreen> createState() => _HospitalBookingScreenState();
 }
 
-class _HospitalScreenState extends State<HospitalScreen> {
+class _HospitalBookingScreenState extends State<HospitalBookingScreen> {
   bool mybookSelect = true;
   bool hisSelect = false;
   @override
@@ -101,7 +101,7 @@ class _HospitalScreenState extends State<HospitalScreen> {
             ),
             Container(
               color: Colors.grey.shade300,
-              height: size.height * 0.7655,
+              // height: size.height * 0.7655,
               width: size.width,
             ),
           ],

@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hk/screens/ambulance_screen.dart';
 import 'package:hk/screens/appointment_screen.dart';
+import 'package:hk/screens/hostpital_screen.dart';
 import 'package:hk/screens/lab_test_screen.dart';
 import 'package:hk/screens/nursing_services_screen.dart';
 import 'package:hk/utils/app_styles.dart';
@@ -182,13 +183,22 @@ class _HomePageState extends State<HomePage> {
                           'Serve to save life',
                           Styles.redColor),
                     ),
-                    HomeCard3(
-                        'assets/icons/15.png',
-                        Styles.lightBlueColor,
-                        Styles.lightBlueColor,
-                        'Hospital',
-                        '24/7 Hours',
-                        Styles.lightBlueColor),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HospitalScreen(),
+                            ));
+                      },
+                      child: HomeCard3(
+                          'assets/icons/15.png',
+                          Styles.lightBlueColor,
+                          Styles.lightBlueColor,
+                          'Hospital',
+                          '24/7 Hours',
+                          Styles.lightBlueColor),
+                    ),
                   ],
                 ),
                 const Gap(20),

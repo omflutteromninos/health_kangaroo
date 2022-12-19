@@ -95,7 +95,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         ontap: () {
                           Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
-                            return const HospitalScreen();
+                            return const HospitalBookingScreen();
                           }));
                         },
                       ),

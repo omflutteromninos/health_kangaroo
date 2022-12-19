@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hk/screens/service_appointment_screen.dart';
+import 'package:hk/screens/services_screen.dart';
 import 'package:hk/utils/app_styles.dart';
 import 'package:hk/widgets/nursing_card_widget.dart';
 import 'package:hk/widgets/nursing_card_widget2.dart';
@@ -198,10 +199,19 @@ class _NursingScreenState extends State<NursingScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      NursingCardWidget(
-                          'https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&q=80',
-                          'Home Personal Care',
-                          'Consultation, Certification & Something'),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ServicesScreen(),
+                              ));
+                        },
+                        child: NursingCardWidget(
+                            'https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&q=80',
+                            'Home Personal Care',
+                            'Consultation, Certification & Something'),
+                      ),
                       NursingCardWidget(
                           'https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&q=80',
                           'Home Personal Care',
