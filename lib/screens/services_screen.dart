@@ -52,7 +52,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               decoration: const BoxDecoration(
-                color: Colors.black12,
+                color: Color.fromARGB(31, 112, 112, 112),
               ),
               child: Column(
                 children: [

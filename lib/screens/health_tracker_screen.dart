@@ -15,47 +15,54 @@ class _HealthTrackerState extends State<HealthTracker> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          height: size.height,
-          width: size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              CommonCard(
-                size: size,
-                text: 'Count Your Steps',
-                img:
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp1Gg6bKL0hO7C6RwfXbLYUMjgmp3gBkKyRBVyVto&s',
-                ontap: () {},
-              ),
-              CommonCard(
-                size: size,
-                text: 'Calculate Your Bmi',
-                img:
-                    'https://play-lh.googleusercontent.com/oRfGPvu132cuyKZXG9Z-OoWr-OlN7VFBIw60vvkBQ2Gzv4V4VdtvpwEISJ1rv9ZzTVI',
-                ontap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return BmiCalculator();
-                  }));
-                },
-              ),
-              CommonCard(
-                size: size,
-                text: 'Monitor Your Heart Rate',
-                img:
-                    'https://d3b6u46udi9ohd.cloudfront.net/wp-content/uploads/2022/05/20070851/Heart-Rate-min-1.jpg',
-                ontap: () {},
-              ),
-              CommonCard(
-                size: size,
-                text: 'See Your Heart Records',
-                img:
-                    'https://apollohealthlib.blob.core.windows.net/health-library/2021/06/shutterstock_1236631984-scaled.jpg',
-                ontap: () {},
-              ),
-            ],
-          ),
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        foregroundColor: Colors.black,
+        backgroundColor: Styles.bgColor,
+        title: const Text('Health Tracker'),
+      ),
+      body: Container(
+        color: Styles.bgColor,
+        height: size.height,
+        width: size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CommonCard(
+              size: size,
+              text: 'Count Your Steps',
+              img:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp1Gg6bKL0hO7C6RwfXbLYUMjgmp3gBkKyRBVyVto&s',
+              ontap: () {},
+            ),
+            CommonCard(
+              size: size,
+              text: 'Calculate Your Bmi',
+              img:
+                  'https://play-lh.googleusercontent.com/oRfGPvu132cuyKZXG9Z-OoWr-OlN7VFBIw60vvkBQ2Gzv4V4VdtvpwEISJ1rv9ZzTVI',
+              ontap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const BmiCalculator();
+                }));
+              },
+            ),
+            CommonCard(
+              size: size,
+              text: 'Monitor Your Heart Rate',
+              img:
+                  'https://d3b6u46udi9ohd.cloudfront.net/wp-content/uploads/2022/05/20070851/Heart-Rate-min-1.jpg',
+              ontap: () {},
+            ),
+            CommonCard(
+              size: size,
+              text: 'See Your Heart Records',
+              img:
+                  'https://apollohealthlib.blob.core.windows.net/health-library/2021/06/shutterstock_1236631984-scaled.jpg',
+              ontap: () {},
+            ),
+          ],
         ),
       ),
     );
@@ -97,7 +104,7 @@ class CommonCard extends StatelessWidget {
               radius: 35,
               backgroundImage: NetworkImage(img),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             )
           ],
