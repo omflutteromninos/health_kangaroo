@@ -15,6 +15,7 @@ import 'package:hk/widgets/left_heading_widget.dart';
 import 'package:hk/widgets/tracker_card_widget.dart';
 
 import '../widgets/home_card_widget3.dart';
+import 'health_tracker_screen.dart';
 import 'mediciens_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -256,8 +257,15 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TrackerCard('Health Tracker', 'assets/icons/10.png',
-                        'Track your health digitally'),
+                    InkWell(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          return HealthTracker();
+                        }));
+                      },
+                      child: TrackerCard('Health Tracker', 'assets/icons/10.png',
+                          'Track your health digitally'),
+                    ),
                     TrackerCard('Pill Reminder', 'assets/icons/22.png',
                         'Set reminder now\nNever miss a pill'),
                   ],
