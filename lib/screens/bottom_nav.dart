@@ -1,13 +1,14 @@
+import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hk/screens/add_account.dart';
-import 'package:hk/screens/article_screen.dart';
 import 'package:hk/screens/home_page.dart';
 import 'package:hk/screens/profile_screen.dart';
 import 'package:hk/screens/settings_screen.dart';
 import 'package:hk/utils/app_styles.dart';
 
+import 'article_screen.dart';
 import 'health_locker_screen.dart';
 
 class BottomNav extends StatefulWidget {
@@ -46,7 +47,7 @@ class _BottomNavState extends State<BottomNav> {
                 return AlertDialog(
                     actionsPadding: EdgeInsets.zero,
                     titleTextStyle:
-                        const TextStyle(color: Colors.white, fontSize: 22),
+                        TextStyle(color: Colors.white, fontSize: 22),
                     backgroundColor: Colors.transparent,
                     alignment: Alignment.topCenter,
                     insetPadding: EdgeInsets.only(
@@ -55,7 +56,7 @@ class _BottomNavState extends State<BottomNav> {
                         top: MediaQuery.of(context).size.height * 0.5),
                     actions: [
                       Container(
-                          padding: const EdgeInsets.all(15),
+                          padding: EdgeInsets.all(15),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(50)),
@@ -77,19 +78,18 @@ class _BottomNavState extends State<BottomNav> {
                                         decoration: TextDecoration.underline),
                                   ),
                                   InkWell(
-                                    onTap: () {
-                                      Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) {
-                                        return const AddAccountScreen();
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                                        return AddAccountScreen();
                                       }));
                                     },
                                     child: Column(
                                       children: [
-                                        const Icon(
+                                        Icon(
                                           Icons.add_circle_outline,
                                           size: 35,
                                         ),
-                                        const Gap(5),
+                                        Gap(5),
                                         Text(
                                           'Add family member',
                                           style: GoogleFonts.dmSans(
@@ -100,7 +100,7 @@ class _BottomNavState extends State<BottomNav> {
                                   )
                                 ],
                               ),
-                              const Divider(
+                              Divider(
                                 thickness: 1,
                                 height: 20,
                               ),
@@ -113,7 +113,7 @@ class _BottomNavState extends State<BottomNav> {
                                     width: 90,
                                     height: 50,
                                     child: Column(
-                                      children: const [
+                                      children: [
                                         Image(
                                           image:
                                               AssetImage('assets/icons/21.png'),
@@ -134,7 +134,7 @@ class _BottomNavState extends State<BottomNav> {
                                     width: 90,
                                     height: 50,
                                     child: Column(
-                                      children: const [
+                                      children: [
                                         Image(
                                           image:
                                               AssetImage('assets/icons/23.png'),
@@ -155,7 +155,7 @@ class _BottomNavState extends State<BottomNav> {
                                     width: 90,
                                     height: 50,
                                     child: Column(
-                                      children: const [
+                                      children: [
                                         Image(
                                           image:
                                               AssetImage('assets/icons/22.png'),
@@ -173,7 +173,7 @@ class _BottomNavState extends State<BottomNav> {
                                   ),
                                 ],
                               ),
-                              const Gap(40),
+                              Gap(40),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
@@ -184,12 +184,12 @@ class _BottomNavState extends State<BottomNav> {
                                     height: 50,
                                     child: Column(
                                       children: [
-                                        const Image(
+                                        Image(
                                           image:
                                               AssetImage('assets/icons/24.png'),
                                           height: 25,
                                         ),
-                                        const Gap(2),
+                                        Gap(2),
                                         Text(
                                           'Invite Friends',
                                           style: GoogleFonts.poppins(
@@ -204,7 +204,7 @@ class _BottomNavState extends State<BottomNav> {
                                     width: 90,
                                     height: 50,
                                     child: Column(
-                                      children: const [
+                                      children: [
                                         Image(
                                           image:
                                               AssetImage('assets/icons/25.png'),
@@ -225,7 +225,7 @@ class _BottomNavState extends State<BottomNav> {
                                     width: 90,
                                     height: 50,
                                     child: Column(
-                                      children: const [
+                                      children: [
                                         Image(
                                           image:
                                               AssetImage('assets/icons/22.png'),
@@ -257,7 +257,7 @@ class _BottomNavState extends State<BottomNav> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
@@ -267,7 +267,7 @@ class _BottomNavState extends State<BottomNav> {
           onTap: _onItemTapped,
           elevation: 10,
           items: <BottomNavigationBarItem>[
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 icon: Image(
                   color: Colors.white,
                   image: AssetImage('assets/icons/14.png'),
@@ -279,17 +279,17 @@ class _BottomNavState extends State<BottomNav> {
                 ),
                 label: 'Home'),
             BottomNavigationBarItem(
-                icon: const Image(
+                icon: Image(
                   image: AssetImage('assets/icons/15.png'),
                   height: 24,
                 ),
                 activeIcon: Image(
                   color: Styles.greenColor,
-                  image: const AssetImage('assets/icons/15.png'),
+                  image: AssetImage('assets/icons/15.png'),
                   height: 24,
                 ),
                 label: 'Article'),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 icon: Image(
                   color: Colors.transparent,
                   image: AssetImage('assets/icons/21.png'),
@@ -302,17 +302,17 @@ class _BottomNavState extends State<BottomNav> {
                 ),
                 label: 'Profile'),
             BottomNavigationBarItem(
-                icon: const Image(
+                icon: Image(
                   image: AssetImage('assets/icons/16.png'),
                   height: 24,
                 ),
                 activeIcon: Image(
                   color: Styles.greenColor,
-                  image: const AssetImage('assets/icons/16.png'),
+                  image: AssetImage('assets/icons/16.png'),
                   height: 24,
                 ),
                 label: 'Health Locker'),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 icon: Image(
                   color: Colors.white,
                   image: AssetImage('assets/icons/26.png'),
@@ -329,10 +329,8 @@ class _BottomNavState extends State<BottomNav> {
           backgroundColor: Colors.black,
           selectedItemColor: Styles.greenColor,
           unselectedItemColor: Colors.grey,
-          selectedLabelStyle:
-              const TextStyle(color: Colors.white, fontSize: 10),
-          unselectedLabelStyle:
-              const TextStyle(color: Colors.white, fontSize: 10),
+          selectedLabelStyle: TextStyle(color: Colors.white, fontSize: 10),
+          unselectedLabelStyle: TextStyle(color: Colors.white, fontSize: 10),
         ),
       ),
     );

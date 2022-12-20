@@ -14,7 +14,7 @@ class MySplashScreen extends StatefulWidget {
 
 class _MySplashScreenState extends State<MySplashScreen> {
   startTimer() {
-    Timer(const Duration(seconds: 5), () async {
+    Timer(const Duration(seconds: 2), () async {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (c) => const BottomNav()));
     });
