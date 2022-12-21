@@ -8,7 +8,9 @@ void main() {
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: Styles.greenColor, // navigation bar color
-    statusBarColor: Styles.greenColor, // status bar color
+    statusBarColor: Styles.greenColor,
+
+    // status bar color
   ));
 }
 
