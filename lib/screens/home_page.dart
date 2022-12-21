@@ -258,13 +258,14 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                          return HealthTracker();
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return const HealthTracker();
                         }));
                       },
-                      child: TrackerCard('Health Tracker', 'assets/icons/10.png',
-                          'Track your health digitally'),
+                      child: TrackerCard('Health Tracker',
+                          'assets/icons/10.png', 'Track your health digitally'),
                     ),
                     TrackerCard('Pill Reminder', 'assets/icons/22.png',
                         'Set reminder now\nNever miss a pill'),

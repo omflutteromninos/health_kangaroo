@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hk/screens/bottom_nav.dart';
 import 'package:hk/screens/splash_screen.dart';
 import 'package:hk/utils/app_styles.dart';
 
