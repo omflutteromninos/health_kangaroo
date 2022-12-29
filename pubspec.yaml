@@ -47,6 +47,7 @@ dependencies:
   flutter_launcher_icons: ^0.11.0
   device_info_plus: ^8.0.0
   iphone_has_notch: ^1.0.0
+  dotted_border: ^2.0.0+3
 
 dev_dependencies:
   flutter_test:

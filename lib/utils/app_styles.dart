@@ -24,8 +24,10 @@ class Styles {
   static TextStyle smallText= const TextStyle(color: Colors.black,fontSize: 14);
   static TextStyle graySmallText= const TextStyle(color: Colors.grey,fontSize: 12);
   static TextStyle whiteText= const TextStyle(color: Colors.white,fontSize: 14);
-  static TextStyle mediumText= const TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w500);
-  static TextStyle largeText= const TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.w500);
+  static TextStyle mediumText= const TextStyle(color: Colors.black,fontSize: 16,);
+  static TextStyle mediumBoldText= const TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold);
+  static TextStyle largeBoldText= const TextStyle(color: Colors.black,fontSize: 22,fontWeight: FontWeight.w500);
+  static TextStyle largeText= const TextStyle(color: Colors.black,fontSize: 20);
   static TextStyle largeWhiteText= const TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.w700);
 
   static TextStyle textStyle =

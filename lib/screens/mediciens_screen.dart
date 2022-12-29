@@ -34,61 +34,41 @@ class _MedicineScreenState extends State<MedicineScreen> {
 
     return Scaffold(
         appBar: AppBar(
+          title: Text('Medicine'),
+            centerTitle: true,
             backgroundColor: const Color.fromARGB(0, 255, 255, 255),
             foregroundColor: Colors.black,
             elevation: 0,
             actions: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text(
-                            'Medicine',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 20),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              right: 20,
-                            ),
-                            child: Icon(Icons.shopping_cart_outlined),
-                          ),
-                        ]),
-                  ),
-                ],
-              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 15),
+                child: Icon(Icons.shopping_cart_outlined),
+              )
             ]),
-        body: SingleChildScrollView(
-          child: SafeArea(
+        body: Container(
+          height: size.height,
+          width: size.width,
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 Container(
-                    padding:
-                        const EdgeInsets.only(top: 10, left: 15, right: 15),
-                    height: size.height,
-                    width: size.width,
+                    height: size.height*0.885,
+                    width: size.width*0.9,
                     child: Column(
                       children: [
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        const SizedBox(height: 10,),
                         Container(
                           height: 45,
-                          width: 300,
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
-                                  spreadRadius: 5,
-                                  blurRadius: 5,
-                                  color: Colors.grey.shade200)
+                                  // spreadRadius: 5,
+                                  blurRadius: 20,
+                                  color: Colors.grey.shade300)
                             ],
                             color: Colors.white,
                             border: Border.all(
-                                color: Colors.grey.shade300, width: 4),
+                                color: Colors.grey.shade300.withOpacity(0.7), width: 4),
                             borderRadius: BorderRadius.circular(22.5),
                           ),
                           child: Row(
@@ -110,139 +90,114 @@ class _MedicineScreenState extends State<MedicineScreen> {
                             ],
                           ),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                        const SizedBox(height: 20,),
+                        Container(
+                          height: size.height*0.14,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(blurRadius: 10,color: Colors.grey)
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15)
                           ),
-                          child: SizedBox(
-                            height: 110,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 20, left: 20, top: 8, bottom: 8),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Order Quickly with prescription',
-                                    style: Styles.mediumText,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'upload prescription and tell us',
-                                            style: Styles.graySmallText,
-                                          ),
-                                          Text(
-                                            'what you need.We do the rest!',
-                                            style: Styles.graySmallText,
-                                          ),
-                                        ],
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                right: 10, left: 18, top: 8, bottom: 8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Order Quickly with prescription',
+                                  style: Styles.mediumText.copyWith(fontSize: 16,fontWeight: FontWeight.w700),
+                                ),
+                                const SizedBox(height: 4,),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'upload prescription and tell us what you\nneed.We do the rest!',
+                                      style: Styles.graySmallText.copyWith(fontWeight: FontWeight.bold),
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return const UploadScreen();
+                                        }));
+                                      },
+                                      child: Container(
+                                        height: size.height*0.04,
+                                        width: size.width*0.2,
+                                        decoration: BoxDecoration(
+                                            color: Styles.greenColor,
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Center(
+                                            child: Text(
+                                          'Upload',
+                                          style: Styles.whiteText,
+                                        )),
                                       ),
-                                      InkWell(
-                                        onTap: () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (context) {
-                                            return const UploadScreen();
-                                          }));
-                                        },
-                                        child: Container(
-                                          height: 40,
-                                          width: 90,
-                                          decoration: BoxDecoration(
-                                              color: Styles.greenColor,
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          child: Center(
-                                              child: Text(
-                                            'Upload',
-                                            style: Styles.whiteText,
-                                          )),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Text(
-                                    'Save 18% on medicines',
-                                    style: Styles.smallText
-                                        .copyWith(color: Styles.greenColor),
-                                  ),
-                                ],
-                              ),
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(height: 6,),
+                                Text(
+                                  'Save 18% on medicines',
+                                  style: Styles.smallText.copyWith(fontWeight: FontWeight.w500)
+                                      .copyWith(color: Styles.greenColor),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        Column(children: [
-                          Stack(
-                            children: [
-                              CarouselSlider(
-                                items: imageSliders,
-                                carouselController: _controller,
-                                options: CarouselOptions(
-                                    viewportFraction: 1,
-                                    height: 150,
-                                    autoPlay: true,
-                                    aspectRatio: 4.0,
-                                    enlargeCenterPage: true,
-                                    onPageChanged: (index, reason) {
-                                      setState(() {
-                                        _current = index;
-                                      });
-                                    }),
-                              ),
-                              Positioned(
-                                bottom: 10,
-                                right: size.width * 0.35,
-                                child: Center(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children:
-                                        imgList.asMap().entries.map((entry) {
-                                      return GestureDetector(
-                                        onTap: () => _controller
-                                            .animateToPage(entry.key),
-                                        child: Container(
-                                          width: 12.0,
-                                          height: 12.0,
-                                          margin: const EdgeInsets.symmetric(
-                                              vertical: 8.0, horizontal: 4.0),
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: (Theme.of(context)
-                                                              .brightness ==
-                                                          Brightness.dark
-                                                      ? Colors.white
-                                                      : Colors.black)
-                                                  .withOpacity(
-                                                      _current == entry.key
-                                                          ? 0.9
-                                                          : 0.4)),
-                                        ),
-                                      );
-                                    }).toList(),
-                                  ),
+                        Stack(
+                          children: [
+                            CarouselSlider(
+                              items: imageSliders,
+                              carouselController: _controller,
+                              options: CarouselOptions(
+                                  viewportFraction: 1,
+                                  autoPlay: true,
+                                  aspectRatio: 2.6,
+                                  enlargeCenterPage: true,
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      _current = index;
+                                    });
+                                  }),
+                            ),
+                            Positioned(
+                              bottom: 8,
+                              right: size.width * 0.41,
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children:
+                                      imgList.asMap().entries.map((entry) {
+                                    return GestureDetector(
+                                      onTap: () => _controller
+                                          .animateToPage(entry.key),
+                                      child: Container(
+                                        width: 6.0,
+                                        height: 6.0,
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 8.0, horizontal: 4.0),
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color:_current == entry.key? Colors.green:Colors.white),
+                                      ),
+                                    );
+                                  }).toList(),
                                 ),
                               ),
-                            ],
-                          ),
-                        ]),
+                            ),
+                          ],
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
@@ -262,41 +217,42 @@ class _MedicineScreenState extends State<MedicineScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        SizedBox(
-                          height: size.height * 0.26,
-                          child: GridView.count(
-                            childAspectRatio: 0.9,
-                            primary: false,
-                            crossAxisCount: 4,
-                            children: <Widget>[
-                              PopularCategories(
-                                  imagePath: 'assets/images/img2.jpg',
-                                  textName: 'Vitamins & \n Suppliments'),
-                              PopularCategories(
-                                  imagePath: 'assets/images/img1.jpg',
-                                  textName: 'Stress & \n Anxiety'),
-                              PopularCategories(
-                                  imagePath: 'assets/images/img3.jpg',
-                                  textName: 'Bones & \n Joints'),
-                              PopularCategories(
-                                  imagePath: 'assets/images/img1.jpg',
-                                  textName: 'Diabetes'),
-                              PopularCategories(
-                                  imagePath: 'assets/images/img1.jpg',
-                                  textName: 'Stomach & \n Pains'),
-                              PopularCategories(
-                                  imagePath: 'assets/images/img2.jpg',
-                                  textName: 'Pimples & \n Ance'),
-                              PopularCategories(
-                                  imagePath: 'assets/images/img2.jpg',
-                                  textName: 'Hair & \n Scalp'),
-                              PopularCategories(
-                                  imagePath: 'assets/images/img2.jpg',
-                                  textName: 'Sexual \n Disorder'),
-                              PopularCategories(
-                                  imagePath: 'assets/images/img2.jpg',
-                                  textName: 'Suppliments'),
-                            ],
+                        Expanded(
+                          child: Container(
+                            child: GridView.count(
+                              childAspectRatio: 0.9,
+                              primary: false,
+                              crossAxisCount: 4,
+                              children: <Widget>[
+                                PopularCategories(
+                                    imagePath: 'assets/images/img2.jpg',
+                                    textName: 'Vitamins & \n Suppliments'),
+                                PopularCategories(
+                                    imagePath: 'assets/images/img1.jpg',
+                                    textName: 'Stress & \n Anxiety'),
+                                PopularCategories(
+                                    imagePath: 'assets/images/img3.jpg',
+                                    textName: 'Bones & \n Joints'),
+                                PopularCategories(
+                                    imagePath: 'assets/images/img1.jpg',
+                                    textName: 'Diabetes'),
+                                PopularCategories(
+                                    imagePath: 'assets/images/img1.jpg',
+                                    textName: 'Stomach & \n Pains'),
+                                PopularCategories(
+                                    imagePath: 'assets/images/img2.jpg',
+                                    textName: 'Pimples & \n Ance'),
+                                PopularCategories(
+                                    imagePath: 'assets/images/img2.jpg',
+                                    textName: 'Hair & \n Scalp'),
+                                PopularCategories(
+                                    imagePath: 'assets/images/img2.jpg',
+                                    textName: 'Sexual \n Disorder'),
+                                PopularCategories(
+                                    imagePath: 'assets/images/img2.jpg',
+                                    textName: 'Suppliments'),
+                              ],
+                            ),
                           ),
                         ),
                       ],

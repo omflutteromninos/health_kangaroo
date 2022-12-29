@@ -14,7 +14,7 @@ class NursingCardWidget extends StatelessWidget {
       elevation: 3,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.5,
+        width: MediaQuery.of(context).size.width * 0.45,
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,9 +27,9 @@ class NursingCardWidget extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                         border: Border.all(width: 1, color: Styles.greenColor),
-                        borderRadius: BorderRadius.circular(60)),
+                        borderRadius: BorderRadius.circular(40)),
                     child: CircleAvatar(
-                      radius: 30,
+                      radius: 25,
                       foregroundImage: NetworkImage(imageUrl),
                     ),
                   ),
@@ -48,12 +48,12 @@ class NursingCardWidget extends StatelessWidget {
                 ],
               ),
             ),
-            const Gap(10),
+            const Gap(6),
             Text(
               heading,
               style: const TextStyle(fontWeight: FontWeight.w500),
             ),
-            const Gap(10),
+            const Gap(6),
             Text(
               subheading,
               style: TextStyle(
