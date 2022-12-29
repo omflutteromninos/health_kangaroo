@@ -173,6 +173,18 @@ class _BottomNavState extends State<BottomNav> {
     }
   }
 
+  // bool keyboardOpen = false;
+  // @override
+  // void initState() {
+  //   super.initState();
+
+  //   KeyboardVisibilityNotification().addNewListener(
+  //     onChange: (bool visible) {
+  //       setState(() => keyboardOpen = visible);
+  //     },
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -339,7 +351,7 @@ class _BottomNavState extends State<BottomNav> {
           ),
           Text(
             'Profile',
-            style: TextStyle(color: index2 ? Colors.green : Colors.white),
+            style: TextStyle(color: index2 ? Styles.greenColor : Colors.white),
           ),
           const SizedBox(
             height: 5,

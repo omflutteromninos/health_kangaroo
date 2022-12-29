@@ -61,9 +61,11 @@ class HomeCard3 extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 3, vertical: 2),
                           alignment: Alignment.center,
-                          height: 15,
-                          width: 75,
+
+                          // width: 75,
                           decoration: BoxDecoration(
                               color: textBgColor,
                               borderRadius: BorderRadius.circular(10)),

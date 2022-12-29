@@ -18,7 +18,6 @@ import 'package:iphone_has_notch/iphone_has_notch.dart';
 import '../widgets/home_card_widget3.dart';
 import 'health_tracker_screen.dart';
 import 'mediciens_screen.dart';
-import 'package:device_info_plus/device_info_plus.dart' as device;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,6 +45,14 @@ final List<Widget> imageSliders = imgList
 class _HomePageState extends State<HomePage> {
   // ignore: unused_field
   int _current = 0;
+  // bool? delayBool;
+  // delayAction() {
+  //   setState(() {
+  //     Future.delayed(const Duration(seconds: 2));
+  //     delayBool = true;
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,6 +114,15 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                         onTap: () {
+                          // showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) {
+                          //       return const Center(
+                          //         child: CircularProgressIndicator(),
+                          //       );
+                          //     });
+                          // await delayAction();
+                          // delayBool = true;
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -117,12 +133,20 @@ class _HomePageState extends State<HomePage> {
                             'assets/icons/9.png',
                             Styles.yellowColor,
                             Styles.yellowColor,
-                            'hiii Lab Test',
+                            'Lab Test',
                             'Safe & hygienic',
                             Styles.yellowColor),
                       ),
                       InkWell(
                         onTap: () {
+                          // showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) {
+                          //       return const Center(
+                          //         child: CircularProgressIndicator(),
+                          //       );
+                          //     });
+                          // await delayAction();
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -144,6 +168,14 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                         onTap: () {
+                          // showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) {
+                          //       return const Center(
+                          //         child: CircularProgressIndicator(),
+                          //       );
+                          //     });
+                          // await delayAction();
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -160,6 +192,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                       InkWell(
                         onTap: () {
+                          // showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) {
+                          //       return const Center(
+                          //         child: CircularProgressIndicator(),
+                          //       );
+                          //     });
+                          // await delayAction();
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -181,6 +221,14 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                         onTap: () {
+                          // showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) {
+                          //       return const Center(
+                          //         child: CircularProgressIndicator(),
+                          //       );
+                          //     });
+                          // await delayAction();
                           Navigator.push(
                               context,
                               MaterialPageRoute(

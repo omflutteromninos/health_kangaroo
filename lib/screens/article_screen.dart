@@ -22,12 +22,12 @@ class _ArticleScreenState extends State<ArticleScreen> {
         centerTitle: true,
         elevation: 0,
         foregroundColor: Colors.black,
-        backgroundColor: Styles.bgColor,
+        backgroundColor: Colors.white,
         title: const Text('Articles'),
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: Styles.bgColor,
+          color: Colors.white,
           width: size.width,
           child: Column(
             children: [
@@ -69,6 +69,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                                   child: Text(
                                     'FEED',
                                     style: Styles.mediumText.copyWith(
+                                        fontWeight: FontWeight.normal,
                                         color: isselected2
                                             ? Colors.black
                                             : Colors.white),
@@ -99,6 +100,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                                   child: Text(
                                     'EXPLORE',
                                     style: Styles.mediumText.copyWith(
+                                        fontWeight: FontWeight.normal,
                                         color: isselected1
                                             ? Colors.black
                                             : Colors.white),
