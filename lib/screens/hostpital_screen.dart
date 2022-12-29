@@ -151,6 +151,7 @@ class _HospitalScreenState extends State<HospitalScreen> {
               },
               child: const Padding(
                 padding: EdgeInsets.only(
+                  left: 20,
                   right: 20,
                 ),
                 child: Icon(Icons.filter_alt_rounded),

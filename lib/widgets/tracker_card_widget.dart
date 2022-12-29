@@ -19,7 +19,7 @@ class TrackerCard extends StatelessWidget {
           padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
-            border: Border.all(width: 3, color: Styles.greenColor),
+            border: Border.all(width: 1, color: Styles.greenColor),
             borderRadius: BorderRadius.circular(10),
           ),
           width: MediaQuery.of(context).size.width * 0.43,
@@ -40,7 +40,7 @@ class TrackerCard extends StatelessWidget {
                     image: AssetImage(
                       'assets/icons/13.png',
                     ),
-                    height: 20,
+                    height: 25,
                   )
                 ],
               ),

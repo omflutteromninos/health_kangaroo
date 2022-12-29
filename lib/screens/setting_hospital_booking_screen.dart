@@ -16,20 +16,12 @@ class _HospitalBookingScreenState extends State<HospitalBookingScreen> {
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Styles.bgColor,
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            ),
-          ),
-          title: Align(
-              alignment: Alignment.center,
-              child: Text('Hospital Bookings', style: Styles.largeText)),
+          backgroundColor: Styles.bgColor,
+          foregroundColor: Colors.black,
+          centerTitle: true,
+          title: const Text('Hospital Bookings'),
         ),
         body: Column(
           children: [

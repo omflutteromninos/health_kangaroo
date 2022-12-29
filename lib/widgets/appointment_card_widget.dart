@@ -14,7 +14,7 @@ class AppointmentCardWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
         height: MediaQuery.of(context).size.height * 0.18,
-        width: MediaQuery.of(context).size.width * 0.25,
+        width: MediaQuery.of(context).size.width * 0.28,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

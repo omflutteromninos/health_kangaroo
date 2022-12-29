@@ -5,6 +5,7 @@ import 'package:hk/screens/setting_hospital_booking_screen.dart';
 import 'package:hk/screens/setting_my_consultation_Screen.dart';
 
 import '../utils/app_styles.dart';
+import 'emergency_contacts_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -19,17 +20,17 @@ class _SettingScreenState extends State<SettingScreen> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Styles.bgColor,
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
+        backgroundColor: Styles.bgColor,
         foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
         title: const Text('Settings'),
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           width: size.width,
-          color: Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -60,8 +61,7 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
-                child: Container(
-                  color: Colors.white,
+                child: SizedBox(
                   width: size.width,
                   child: Column(
                     children: [
@@ -104,10 +104,20 @@ class _SettingScreenState extends State<SettingScreen> {
                         myText: 'Trip Details',
                         ontap: () {},
                       ),
-                      MyListile(
-                        myIcon: Icons.phone,
-                        myText: 'Emergency Contacts',
-                        ontap: () {},
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const EmergencyContactsScreen(),
+                              ));
+                        },
+                        child: MyListile(
+                          myIcon: Icons.phone,
+                          myText: 'Emergency Contacts',
+                          ontap: () {},
+                        ),
                       ),
                       MyListile(
                         myIcon: Icons.local_offer_outlined,

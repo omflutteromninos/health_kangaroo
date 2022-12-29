@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hk/screens/health_article_sleep.dart';
 
 import '../utils/app_styles.dart';
 
@@ -118,85 +119,109 @@ class _ArticleScreenState extends State<ArticleScreen> {
                             itemCount: 2,
                             itemBuilder: (context, int index) {
                               if (isselected1 == true) {
-                                return Card(
-                                  child: Container(
-                                    color: Colors.white,
-                                    width: size.width,
-                                    // height: size.height * .35,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(5.0),
-                                          child: Container(
-                                            height: size.height * .25,
-                                            decoration: const BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: NetworkImage(
-                                                        'https://images.unsplash.com/photo-1585241936939-be4099591252?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
-                                                    fit: BoxFit.fill)),
+                                return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const HealthArticleSleep(),
+                                        ));
+                                  },
+                                  child: Card(
+                                    child: Container(
+                                      color: Colors.white,
+                                      width: size.width,
+                                      // height: size.height * .35,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(5.0),
+                                            child: Container(
+                                              height: size.height * .22,
+                                              decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: NetworkImage(
+                                                          'https://images.unsplash.com/photo-1585241936939-be4099591252?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
+                                                      fit: BoxFit.fill)),
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(6.0),
-                                          child: Text(
-                                            'Health Article',
-                                            style: Styles.smallText,
+                                          Padding(
+                                            padding: const EdgeInsets.all(6.0),
+                                            child: Text(
+                                              'Health Article',
+                                              style: Styles.smallText,
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            'How do doctors survives with this pandemic',
-                                            style: Styles.graySmallText,
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                              'How do doctors survives with this pandemic',
+                                              style: Styles.graySmallText,
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 );
                               } else if (isselected2 == true) {
-                                return SizedBox(
-                                  width: size.width,
-                                  height: size.height * .35,
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Container(
-                                              height: 200,
-                                              width: 150,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(10),
-                                                  image: const DecorationImage(
-                                                      image: AssetImage(
-                                                          'assets/images/img1.jpg'),
-                                                      fit: BoxFit.fill)),
+                                return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const HealthArticleSleep(),
+                                        ));
+                                  },
+                                  child: SizedBox(
+                                    width: size.width,
+                                    height: size.height * .28,
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                height: 200,
+                                                width: 150,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    image: const DecorationImage(
+                                                        image: AssetImage(
+                                                            'assets/images/img1.jpg'),
+                                                        fit: BoxFit.fill)),
+                                              ),
                                             ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Container(
-                                              height: 200,
-                                              width: 150,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(10),
-                                                  image: const DecorationImage(
-                                                      image: AssetImage(
-                                                          'assets/images/img1.jpg'),
-                                                      fit: BoxFit.fill)),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Container(
+                                                height: 200,
+                                                width: 150,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    image: const DecorationImage(
+                                                        image: AssetImage(
+                                                            'assets/images/img1.jpg'),
+                                                        fit: BoxFit.fill)),
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 );
                               } else {

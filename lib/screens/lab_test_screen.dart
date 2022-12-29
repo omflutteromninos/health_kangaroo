@@ -15,8 +15,9 @@ class _LabTestScreenState extends State<LabTestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Styles.bgColor,
       appBar: AppBar(
-          backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+          backgroundColor: Styles.bgColor,
           foregroundColor: Colors.black,
           elevation: 0,
           actions: [
@@ -37,16 +38,18 @@ class _LabTestScreenState extends State<LabTestScreen> {
                           padding: EdgeInsets.only(
                             right: 20,
                           ),
-                          child: Icon(Icons.shopping_cart_outlined),
+                          child: Icon(
+                            Icons.shopping_cart_outlined,
+                            size: 30,
+                          ),
                         ),
                       ]),
                 ),
               ],
             ),
           ]),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Container(
-            color: Styles.bgColor,
             padding: const EdgeInsets.only(
               top: 10,
               left: 15,
@@ -56,10 +59,13 @@ class _LabTestScreenState extends State<LabTestScreen> {
               children: [
                 TextField(
                   decoration: InputDecoration(
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
                     contentPadding: EdgeInsets.zero,
                     fillColor: Colors.white,
                     filled: true,
-                    prefixIcon: const Icon(Icons.search),
+                    prefixIcon: const Icon(
+                      Icons.search_sharp,
+                    ),
                     border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(30)),
@@ -71,17 +77,19 @@ class _LabTestScreenState extends State<LabTestScreen> {
                 ),
                 const Gap(20),
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.only(
+                      left: 10, right: 10, top: 12, bottom: 12),
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.1,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     color: Styles.greenColor,
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -100,7 +108,6 @@ class _LabTestScreenState extends State<LabTestScreen> {
                           ),
                         ],
                       ),
-                      const Gap(10),
                       InkWell(
                         onTap: () {
                           Navigator.push(
@@ -112,7 +119,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                         child: Container(
                           alignment: Alignment.center,
                           width: 100,
-                          height: 40,
+                          height: 35,
                           decoration: BoxDecoration(
                               color: Styles.bgColor,
                               borderRadius: BorderRadius.circular(20)),
@@ -171,7 +178,8 @@ class _LabTestScreenState extends State<LabTestScreen> {
                   child: Column(
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.only(
+                            top: 16, bottom: 16, right: 10, left: 16),
                         child: Row(
                           children: [
                             const CircleAvatar(
@@ -183,7 +191,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                             Column(
                               children: [
                                 SizedBox(
-                                  width: 200,
+                                  width: 230,
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -199,7 +207,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                                           const Text('Amit Kumar'),
                                           Text('Shivajinagar Branch',
                                               style: TextStyle(
-                                                  fontSize: 10,
+                                                  fontSize: 12,
                                                   color: Styles.greyColor)),
                                         ],
                                       ),
@@ -214,18 +222,18 @@ class _LabTestScreenState extends State<LabTestScreen> {
                                   ),
                                 ),
                                 Container(
-                                  width: 200,
+                                  width: 230,
                                   alignment: Alignment.centerLeft,
                                   child: Text(
                                     'Working 24 hours: 07:00 A.M - 7:00 P.M',
                                     style: TextStyle(
-                                        fontSize: 10, color: Styles.greyColor),
+                                        fontSize: 12, color: Styles.greyColor),
                                     textAlign: TextAlign.start,
                                   ),
                                 ),
                                 const Gap(20),
                                 Container(
-                                  width: 200,
+                                  width: 230,
                                   alignment: Alignment.centerLeft,
                                   child: Text(
                                     '21+ BRANCHES',

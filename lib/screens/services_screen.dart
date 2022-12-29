@@ -28,8 +28,8 @@ class _ServicesScreenState extends State<ServicesScreen> {
         child: Column(
           children: [
             const Image(
-              image: AssetImage('assets/images/office.png'),
-              height: 150,
+              image: AssetImage('assets/images/doctors.png'),
+              height: 200,
             ),
             const Gap(20),
             Padding(

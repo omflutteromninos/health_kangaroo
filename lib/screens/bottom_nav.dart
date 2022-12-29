@@ -1,4 +1,3 @@
-import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,23 +44,29 @@ class _BottomNavState extends State<BottomNav> {
               context: context,
               builder: (context) {
                 return AlertDialog(
+                    actionsOverflowAlignment: OverflowBarAlignment.end,
+                    actionsOverflowDirection: VerticalDirection.down,
+                    titlePadding: EdgeInsets.zero,
+                    actionsAlignment: MainAxisAlignment.end,
+                    buttonPadding: EdgeInsets.zero,
+                    contentPadding: EdgeInsets.zero,
                     actionsPadding: EdgeInsets.zero,
                     titleTextStyle:
-                        TextStyle(color: Colors.white, fontSize: 22),
+                        const TextStyle(color: Colors.white, fontSize: 22),
                     backgroundColor: Colors.transparent,
                     alignment: Alignment.topCenter,
                     insetPadding: EdgeInsets.only(
                         left: 30,
                         right: 30,
-                        top: MediaQuery.of(context).size.height * 0.5),
+                        top: MediaQuery.of(context).size.height * 0.62),
                     actions: [
                       Container(
-                          padding: EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(15),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(50)),
                           width: MediaQuery.of(context).size.width,
-                          height: 260,
+                          height: 160,
                           alignment: Alignment.center,
                           child: Column(
                             children: [
@@ -78,18 +83,19 @@ class _BottomNavState extends State<BottomNav> {
                                         decoration: TextDecoration.underline),
                                   ),
                                   InkWell(
-                                    onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context){
-                                        return AddAccountScreen();
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return const AddAccountScreen();
                                       }));
                                     },
                                     child: Column(
                                       children: [
-                                        Icon(
+                                        const Icon(
                                           Icons.add_circle_outline,
                                           size: 35,
                                         ),
-                                        Gap(5),
+                                        const Gap(5),
                                         Text(
                                           'Add family member',
                                           style: GoogleFonts.dmSans(
@@ -100,7 +106,7 @@ class _BottomNavState extends State<BottomNav> {
                                   )
                                 ],
                               ),
-                              Divider(
+                              const Divider(
                                 thickness: 1,
                                 height: 20,
                               ),
@@ -113,7 +119,7 @@ class _BottomNavState extends State<BottomNav> {
                                     width: 90,
                                     height: 50,
                                     child: Column(
-                                      children: [
+                                      children: const [
                                         Image(
                                           image:
                                               AssetImage('assets/icons/21.png'),
@@ -134,7 +140,7 @@ class _BottomNavState extends State<BottomNav> {
                                     width: 90,
                                     height: 50,
                                     child: Column(
-                                      children: [
+                                      children: const [
                                         Image(
                                           image:
                                               AssetImage('assets/icons/23.png'),
@@ -155,7 +161,7 @@ class _BottomNavState extends State<BottomNav> {
                                     width: 90,
                                     height: 50,
                                     child: Column(
-                                      children: [
+                                      children: const [
                                         Image(
                                           image:
                                               AssetImage('assets/icons/22.png'),
@@ -173,76 +179,76 @@ class _BottomNavState extends State<BottomNav> {
                                   ),
                                 ],
                               ),
-                              Gap(40),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/24.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'Invite Friends',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/25.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'My Order',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/22.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'Help',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
+
+                              // Row(
+                              //   mainAxisAlignment:
+                              //       MainAxisAlignment.spaceAround,
+                              //   children: [
+                              //     Container(
+                              //       alignment: Alignment.center,
+                              //       width: 90,
+                              //       height: 50,
+                              //       child: Column(
+                              //         children: [
+                              //           const Image(
+                              //             image:
+                              //                 AssetImage('assets/icons/24.png'),
+                              //             height: 25,
+                              //           ),
+                              //           const Gap(2),
+                              //           Text(
+                              //             'Invite Friends',
+                              //             style: GoogleFonts.poppins(
+                              //                 fontSize: 13,
+                              //                 fontWeight: FontWeight.w500),
+                              //           )
+                              //         ],
+                              //       ),
+                              //     ),
+                              //     Container(
+                              //       alignment: Alignment.center,
+                              //       width: 90,
+                              //       height: 50,
+                              //       child: Column(
+                              //         children: const [
+                              //           Image(
+                              //             image:
+                              //                 AssetImage('assets/icons/25.png'),
+                              //             height: 25,
+                              //           ),
+                              //           Gap(2),
+                              //           Text(
+                              //             'My Order',
+                              //             style: TextStyle(
+                              //                 fontSize: 14,
+                              //                 fontWeight: FontWeight.w500),
+                              //           )
+                              //         ],
+                              //       ),
+                              //     ),
+                              //     Container(
+                              //       alignment: Alignment.center,
+                              //       width: 90,
+                              //       height: 50,
+                              //       child: Column(
+                              //         children: const [
+                              //           Image(
+                              //             image:
+                              //                 AssetImage('assets/icons/22.png'),
+                              //             height: 25,
+                              //           ),
+                              //           Gap(2),
+                              //           Text(
+                              //             'Help',
+                              //             style: TextStyle(
+                              //                 fontSize: 14,
+                              //                 fontWeight: FontWeight.w500),
+                              //           )
+                              //         ],
+                              //       ),
+                              //     ),
+                              //   ],
+                              // ),
                             ],
                           ))
                     ]);
@@ -255,9 +261,10 @@ class _BottomNavState extends State<BottomNav> {
           color: Styles.greenColor,
         ),
       ),
+      backgroundColor: Styles.bgColor,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
@@ -267,70 +274,74 @@ class _BottomNavState extends State<BottomNav> {
           onTap: _onItemTapped,
           elevation: 10,
           items: <BottomNavigationBarItem>[
+            const BottomNavigationBarItem(
+              icon: Image(
+                color: Colors.white,
+                image: AssetImage('assets/icons/14.png'),
+                height: 26,
+              ),
+              activeIcon: Image(
+                image: AssetImage('assets/icons/14.png'),
+                height: 26,
+              ),
+              label: 'Home',
+            ),
             BottomNavigationBarItem(
-                icon: Image(
-                  color: Colors.white,
-                  image: AssetImage('assets/icons/14.png'),
-                  height: 24,
-                ),
-                activeIcon: Image(
-                  image: AssetImage('assets/icons/14.png'),
-                  height: 24,
-                ),
-                label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Image(
+                icon: const Image(
                   image: AssetImage('assets/icons/15.png'),
-                  height: 24,
+                  height: 26,
                 ),
                 activeIcon: Image(
                   color: Styles.greenColor,
-                  image: AssetImage('assets/icons/15.png'),
-                  height: 24,
+                  image: const AssetImage('assets/icons/15.png'),
+                  height: 26,
                 ),
                 label: 'Article'),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Image(
                   color: Colors.transparent,
                   image: AssetImage('assets/icons/21.png'),
-                  height: 24,
+                  height: 26,
                 ),
                 activeIcon: Image(
                   image: AssetImage('assets/icons/21.png'),
-                  height: 24,
+                  height: 26,
                   color: Colors.transparent,
                 ),
                 label: 'Profile'),
             BottomNavigationBarItem(
-                icon: Image(
-                  image: AssetImage('assets/icons/16.png'),
-                  height: 24,
-                ),
-                activeIcon: Image(
-                  color: Styles.greenColor,
-                  image: AssetImage('assets/icons/16.png'),
-                  height: 24,
-                ),
-                label: 'Health Locker'),
-            BottomNavigationBarItem(
+              icon: const Image(
+                image: AssetImage('assets/icons/16.png'),
+                height: 26,
+              ),
+              activeIcon: Image(
+                color: Styles.greenColor,
+                image: const AssetImage('assets/icons/16.png'),
+                height: 26,
+              ),
+              label: 'Health Locker',
+            ),
+            const BottomNavigationBarItem(
                 icon: Image(
                   color: Colors.white,
                   image: AssetImage('assets/icons/26.png'),
-                  height: 24,
+                  height: 26,
                 ),
                 activeIcon: Image(
                   image: AssetImage('assets/icons/26.png'),
-                  height: 24,
+                  height: 26,
                 ),
-                label: 'Setting'),
+                label: 'Settings'),
           ],
           showSelectedLabels: true,
           showUnselectedLabels: true,
           backgroundColor: Colors.black,
           selectedItemColor: Styles.greenColor,
           unselectedItemColor: Colors.grey,
-          selectedLabelStyle: TextStyle(color: Colors.white, fontSize: 10),
-          unselectedLabelStyle: TextStyle(color: Colors.white, fontSize: 10),
+          selectedLabelStyle:
+              const TextStyle(color: Colors.white, fontSize: 12),
+          unselectedLabelStyle:
+              const TextStyle(color: Colors.white, fontSize: 12),
         ),
       ),
     );
