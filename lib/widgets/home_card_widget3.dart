@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class HomeCard3 extends StatelessWidget {
   HomeCard3(this.iconImage, this.iconBgColor, this.errowBgColor, this.heading,
       this.bottomText, this.textBgColor,
@@ -20,12 +21,17 @@ class HomeCard3 extends StatelessWidget {
         //set border radius more than 50% of height and width to make circle
       ),
       child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(
+                  width: 3, color: const Color.fromARGB(123, 201, 201, 201)),
+              borderRadius: BorderRadius.circular(12)),
           width: MediaQuery.of(context).size.width * 0.436,
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     padding: const EdgeInsets.all(9),
@@ -39,6 +45,36 @@ class HomeCard3 extends StatelessWidget {
                         iconImage,
                       ),
                     ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            heading,
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w400, fontSize: 12),
+                            overflow: TextOverflow.ellipsis,
+                          )),
+                      const Gap(6),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 15,
+                          width: 75,
+                          decoration: BoxDecoration(
+                              color: textBgColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text(
+                            bottomText,
+                            style: GoogleFonts.poppins(
+                                fontSize: 8, color: Colors.white),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                   Container(
                       alignment: Alignment.center,
@@ -54,28 +90,6 @@ class HomeCard3 extends StatelessWidget {
                       ))
                 ],
               ),
-              const Gap(8),
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(heading,
-                      style: GoogleFonts.poppins(fontWeight: FontWeight.w500))),
-              const Gap(7),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 15,
-                  width: 90,
-                  decoration: BoxDecoration(
-                      color: textBgColor,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Text(
-                    bottomText,
-                    style:
-                        GoogleFonts.poppins(fontSize: 9, color: Colors.white),
-                  ),
-                ),
-              )
             ],
           )),
     );

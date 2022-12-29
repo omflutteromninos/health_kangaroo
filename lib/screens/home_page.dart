@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -45,19 +44,16 @@ final List<Widget> imageSliders = imgList
     .toList();
 
 class _HomePageState extends State<HomePage> {
-
-
   // ignore: unused_field
   int _current = 0;
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Styles.greenColor,
-       toolbarHeight: IphoneHasNotch.hasNotch? -12 :0,
+        toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
 
-       // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
+        // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
         elevation: 0,
       ),
       body: Scaffold(
@@ -82,7 +78,8 @@ class _HomePageState extends State<HomePage> {
           leadingWidth: 80,
           leading: Container(
               padding: const EdgeInsets.only(left: 10),
-              child: const Image(image: AssetImage('assets/icons/hk_logo.png'))),
+              child:
+                  const Image(image: AssetImage('assets/icons/hk_logo.png'))),
           title: Column(
             children: [
               Text(
@@ -120,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                             'assets/icons/9.png',
                             Styles.yellowColor,
                             Styles.yellowColor,
-                            'Book Lab Test',
+                            'hiii Lab Test',
                             'Safe & hygienic',
                             Styles.yellowColor),
                       ),
@@ -272,12 +269,15 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                        onTap: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                            return HealthTracker();
+                        onTap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const HealthTracker();
                           }));
                         },
-                        child: TrackerCard('Health Tracker', 'assets/icons/10.png',
+                        child: TrackerCard(
+                            'Health Tracker',
+                            'assets/icons/10.png',
                             'Track your health digitally'),
                       ),
                       TrackerCard('Pill Reminder', 'assets/icons/22.png',
