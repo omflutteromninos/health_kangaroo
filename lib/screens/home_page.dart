@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                             'assets/icons/9.png',
                             Styles.yellowColor,
                             Styles.yellowColor,
-                            'Book Lab Test',
+                            'hiii Lab Test',
                             'Safe & hygienic',
                             Styles.yellowColor),
                       ),
