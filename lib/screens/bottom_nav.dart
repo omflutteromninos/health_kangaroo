@@ -19,18 +19,236 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
+  bool index2 = false;
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
     const ArticleScreen(),
-    const ProfileScreen(),
+    const InkWell(),
     const HealthLockerScreen(),
     const SettingScreen(),
   ];
   void _onItemTapped(int index) {
+    if(index !=2){
     setState(() {
+      index2=false;
       _selectedIndex = index;
+
     });
+
+  }
+    else{
+      setState((){
+        index2 = true;
+      });
+
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+                actionsPadding: EdgeInsets.zero,
+                titleTextStyle:
+                TextStyle(color: Colors.white, fontSize: 22),
+                backgroundColor: Colors.transparent,
+                alignment: Alignment.topCenter,
+                insetPadding: EdgeInsets.only(
+                    left: 30,
+                    right: 30,
+                    top: MediaQuery.of(context).size.height * 0.5),
+                actions: [
+                  Container(
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50)),
+                      width: MediaQuery.of(context).size.width,
+                      height: 260,
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Added 1 Members',
+                                style: GoogleFonts.poppins(
+                                    color: Styles.greenColor,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
+                              ),
+                              InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                                    return AddAccountScreen();
+                                  }));
+                                },
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.add_circle_outline,
+                                      size: 35,
+                                    ),
+                                    Gap(5),
+                                    Text(
+                                      'Add family member',
+                                      style: GoogleFonts.dmSans(
+                                          fontWeight: FontWeight.w500),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          Divider(
+                            thickness: 1,
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                alignment: Alignment.center,
+                                width: 90,
+                                height: 50,
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                      AssetImage('assets/icons/21.png'),
+                                      height: 25,
+                                    ),
+                                    Gap(2),
+                                    Text(
+                                      'My Account',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                width: 90,
+                                height: 50,
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                      AssetImage('assets/icons/23.png'),
+                                      height: 25,
+                                    ),
+                                    Gap(2),
+                                    Text(
+                                      'Wallet',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                width: 90,
+                                height: 50,
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                      AssetImage('assets/icons/22.png'),
+                                      height: 25,
+                                    ),
+                                    Gap(2),
+                                    Text(
+                                      'Subscription',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Gap(40),
+                          Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                alignment: Alignment.center,
+                                width: 90,
+                                height: 50,
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                      AssetImage('assets/icons/24.png'),
+                                      height: 25,
+                                    ),
+                                    Gap(2),
+                                    Text(
+                                      'Invite Friends',
+                                      style: GoogleFonts.poppins(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w500),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                width: 90,
+                                height: 50,
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                      AssetImage('assets/icons/25.png'),
+                                      height: 25,
+                                    ),
+                                    Gap(2),
+                                    Text(
+                                      'My Order',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                width: 90,
+                                height: 50,
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                      AssetImage('assets/icons/22.png'),
+                                      height: 25,
+                                    ),
+                                    Gap(2),
+                                    Text(
+                                      'Help',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ))
+                ]);
+          });
+    }
   }
 
   @override
@@ -39,221 +257,235 @@ class _BottomNavState extends State<BottomNav> {
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                    actionsPadding: EdgeInsets.zero,
-                    titleTextStyle:
-                        TextStyle(color: Colors.white, fontSize: 22),
-                    backgroundColor: Colors.transparent,
-                    alignment: Alignment.topCenter,
-                    insetPadding: EdgeInsets.only(
-                        left: 30,
-                        right: 30,
-                        top: MediaQuery.of(context).size.height * 0.5),
-                    actions: [
-                      Container(
-                          padding: EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(50)),
-                          width: MediaQuery.of(context).size.width,
-                          height: 260,
-                          alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    'Added 1 Members',
-                                    style: GoogleFonts.poppins(
-                                        color: Styles.greenColor,
-                                        fontWeight: FontWeight.bold,
-                                        decoration: TextDecoration.underline),
-                                  ),
-                                  InkWell(
-                                    onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context){
-                                        return AddAccountScreen();
-                                      }));
-                                    },
-                                    child: Column(
-                                      children: [
-                                        Icon(
-                                          Icons.add_circle_outline,
-                                          size: 35,
-                                        ),
-                                        Gap(5),
-                                        Text(
-                                          'Add family member',
-                                          style: GoogleFonts.dmSans(
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Divider(
-                                thickness: 1,
-                                height: 20,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/21.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'My Account',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/23.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'Wallet',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/22.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'Subscription',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Gap(40),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/24.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'Invite Friends',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/25.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'My Order',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: 90,
-                                    height: 50,
-                                    child: Column(
-                                      children: [
-                                        Image(
-                                          image:
-                                              AssetImage('assets/icons/22.png'),
-                                          height: 25,
-                                        ),
-                                        Gap(2),
-                                        Text(
-                                          'Help',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ))
-                    ]);
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                index2=true;
               });
-        },
-        isExtended: true,
-        backgroundColor: Colors.white,
-        child: Icon(
-          Icons.person,
-          color: Styles.greenColor,
-        ),
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                        actionsPadding: EdgeInsets.zero,
+                        titleTextStyle:
+                            TextStyle(color: Colors.white, fontSize: 22),
+                        backgroundColor: Colors.transparent,
+                        alignment: Alignment.topCenter,
+                        insetPadding: EdgeInsets.only(
+                            left: 30,
+                            right: 30,
+                            top: MediaQuery.of(context).size.height * 0.5),
+                        actions: [
+                          Container(
+                              padding: EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(50)),
+                              width: MediaQuery.of(context).size.width,
+                              height: 260,
+                              alignment: Alignment.center,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        'Added 1 Members',
+                                        style: GoogleFonts.poppins(
+                                            color: Styles.greenColor,
+                                            fontWeight: FontWeight.bold,
+                                            decoration: TextDecoration.underline),
+                                      ),
+                                      InkWell(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                                            return AddAccountScreen();
+                                          }));
+                                        },
+                                        child: Column(
+                                          children: [
+                                            Icon(
+                                              Icons.add_circle_outline,
+                                              size: 35,
+                                            ),
+                                            Gap(5),
+                                            Text(
+                                              'Add family member',
+                                              style: GoogleFonts.dmSans(
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Divider(
+                                    thickness: 1,
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        width: 90,
+                                        height: 50,
+                                        child: Column(
+                                          children: [
+                                            Image(
+                                              image:
+                                                  AssetImage('assets/icons/21.png'),
+                                              height: 25,
+                                            ),
+                                            Gap(2),
+                                            Text(
+                                              'My Account',
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        width: 90,
+                                        height: 50,
+                                        child: Column(
+                                          children: [
+                                            Image(
+                                              image:
+                                                  AssetImage('assets/icons/23.png'),
+                                              height: 25,
+                                            ),
+                                            Gap(2),
+                                            Text(
+                                              'Wallet',
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        width: 90,
+                                        height: 50,
+                                        child: Column(
+                                          children: [
+                                            Image(
+                                              image:
+                                                  AssetImage('assets/icons/22.png'),
+                                              height: 25,
+                                            ),
+                                            Gap(2),
+                                            Text(
+                                              'Subscription',
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Gap(40),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        width: 90,
+                                        height: 50,
+                                        child: Column(
+                                          children: [
+                                            Image(
+                                              image:
+                                                  AssetImage('assets/icons/24.png'),
+                                              height: 25,
+                                            ),
+                                            Gap(2),
+                                            Text(
+                                              'Invite Friends',
+                                              style: GoogleFonts.poppins(
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        width: 90,
+                                        height: 50,
+                                        child: Column(
+                                          children: [
+                                            Image(
+                                              image:
+                                                  AssetImage('assets/icons/25.png'),
+                                              height: 25,
+                                            ),
+                                            Gap(2),
+                                            Text(
+                                              'My Order',
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        width: 90,
+                                        height: 50,
+                                        child: Column(
+                                          children: [
+                                            Image(
+                                              image:
+                                                  AssetImage('assets/icons/22.png'),
+                                              height: 25,
+                                            ),
+                                            Gap(2),
+                                            Text(
+                                              'Help',
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ))
+                        ]);
+                  });
+
+            },
+            isExtended: true,
+            backgroundColor: Colors.white,
+            child: Icon(
+              Icons.person,
+              color: Styles.greenColor,
+            ),
+          ),
+          SizedBox(height: 5,),
+
+
+          Text('Profile', style: TextStyle(color: index2? Colors.green : Colors.white),),
+          SizedBox(height: 5,),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: ClipRRect(
@@ -300,7 +532,7 @@ class _BottomNavState extends State<BottomNav> {
                   height: 24,
                   color: Colors.transparent,
                 ),
-                label: 'Profile'),
+                label: ''),
             BottomNavigationBarItem(
                 icon: Image(
                   image: AssetImage('assets/icons/16.png'),
@@ -324,6 +556,7 @@ class _BottomNavState extends State<BottomNav> {
                 ),
                 label: 'Setting'),
           ],
+
           showSelectedLabels: true,
           showUnselectedLabels: true,
           backgroundColor: Colors.black,
