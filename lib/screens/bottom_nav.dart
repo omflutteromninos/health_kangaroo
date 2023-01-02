@@ -436,9 +436,9 @@ class _BottomNavState extends State<BottomNav> {
           selectedItemColor: Styles.greenColor,
           unselectedItemColor: Colors.grey,
           selectedLabelStyle:
-              const TextStyle(color: Colors.white, fontSize: 12),
+              const TextStyle(color: Colors.white, fontSize: 11),
           unselectedLabelStyle:
-              const TextStyle(color: Colors.white, fontSize: 12),
+              const TextStyle(color: Colors.white, fontSize: 11),
         ),
       ),
     );

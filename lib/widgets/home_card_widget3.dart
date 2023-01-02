@@ -49,14 +49,31 @@ class HomeCard3 extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            heading,
-                            style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400, fontSize: 12),
-                            overflow: TextOverflow.ellipsis,
-                          )),
+                      Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                '$heading  ',
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w600, fontSize: 10),
+                                overflow: TextOverflow.ellipsis,
+                              )),
+                          Container(
+                              alignment: Alignment.center,
+                              width: 20,
+                              height: 20,
+                              decoration: BoxDecoration(
+                                  color: iconBgColor,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                color: Colors.white,
+                                size: 14,
+                              )),
+                        ],
+                      ),
                       const Gap(6),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -72,24 +89,13 @@ class HomeCard3 extends StatelessWidget {
                           child: Text(
                             bottomText,
                             style: GoogleFonts.poppins(
-                                fontSize: 8, color: Colors.white),
+                                fontSize: 9, color: Colors.white),
                           ),
                         ),
                       )
                     ],
                   ),
-                  Container(
-                      alignment: Alignment.center,
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                          color: iconBgColor,
-                          borderRadius: BorderRadius.circular(20)),
-                      child: const Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        color: Colors.white,
-                        size: 14,
-                      ))
+
                 ],
               ),
             ],
