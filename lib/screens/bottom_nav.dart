@@ -10,15 +10,16 @@ import 'article_screen.dart';
 import 'health_locker_screen.dart';
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({super.key});
+  BottomNav({this.selectedIndex = 0});
 
+  @override
+  int selectedIndex;
   @override
   State<BottomNav> createState() => _BottomNavState();
 }
 
 class _BottomNavState extends State<BottomNav> {
   bool index2 = false;
-  int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
     const ArticleScreen(),
@@ -30,7 +31,7 @@ class _BottomNavState extends State<BottomNav> {
     if (index != 2) {
       setState(() {
         index2 = false;
-        _selectedIndex = index;
+        widget.selectedIndex = index;
       });
     } else {
       setState(() {
@@ -189,7 +190,7 @@ class _BottomNavState extends State<BottomNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions[_selectedIndex],
+        child: _widgetOptions[widget.selectedIndex],
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -367,7 +368,7 @@ class _BottomNavState extends State<BottomNav> {
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: _selectedIndex,
+          currentIndex: widget.selectedIndex,
           onTap: _onItemTapped,
           elevation: 10,
           items: <BottomNavigationBarItem>[

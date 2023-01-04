@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hk/utils/app_styles.dart';
 import 'package:hk/widgets/appointment_card_widget.dart';
-import 'package:hk/widgets/left_heading_widget.dart';
 
 class AppointmentScreen extends StatefulWidget {
   const AppointmentScreen({super.key});
@@ -36,7 +35,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             child: Column(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.85,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   padding: const EdgeInsets.all(8),
                   height: 50,
                   decoration: BoxDecoration(
@@ -53,7 +52,15 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                               OutlineInputBorder(borderSide: BorderSide.none))),
                 ),
                 const Gap(20),
-                LeftHeading('Popular Specialities'),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Popular Specialities',
+                    style:
+                        TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
+                  ),
+                ),
+                // LeftHeading('Popular Specialities'),
                 const Gap(20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

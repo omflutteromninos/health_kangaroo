@@ -13,13 +13,13 @@ class AppointmentCardWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-        height: MediaQuery.of(context).size.height * 0.18,
+        height: MediaQuery.of(context).size.height * 0.16,
         width: MediaQuery.of(context).size.width * 0.28,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.12,
+              height: MediaQuery.of(context).size.height * 0.11,
               child: Image(
                 image: NetworkImage(imageUrl),
                 fit: BoxFit.cover,
@@ -27,7 +27,7 @@ class AppointmentCardWidget extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.06,
+              height: MediaQuery.of(context).size.height * 0.05,
               width: 150,
               decoration: BoxDecoration(
                   color: Styles.greenColor,

@@ -13,11 +13,11 @@ class NursingCardWidget2 extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        width: MediaQuery.of(context).size.width * 0.30,
+        width: MediaQuery.of(context).size.width * 0.33,
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.18,
+              height: MediaQuery.of(context).size.height * 0.16,
               child: Image(
                 image: NetworkImage(imageUrl),
                 fit: BoxFit.cover,
@@ -26,7 +26,7 @@ class NursingCardWidget2 extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.05,
-              width: 150,
+              width: 155,
               decoration: BoxDecoration(
                   color: Styles.greenColor,
                   borderRadius: const BorderRadius.only(

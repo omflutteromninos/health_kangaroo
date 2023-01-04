@@ -24,7 +24,7 @@ class _HospitalScreenState extends State<HospitalScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const BottomNav(),
+                      builder: (context) => BottomNav(selectedIndex: 0),
                     ));
               },
               child: Icon(Icons.adaptive.arrow_back)),

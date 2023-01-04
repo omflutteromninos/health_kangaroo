@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hk/screens/health_article_sleep.dart';
 
 import '../utils/app_styles.dart';
@@ -31,6 +32,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
           width: size.width,
           child: Column(
             children: [
+              Gap(MediaQuery.of(context).size.height * 0.035),
               Padding(
                 padding: const EdgeInsets.only(right: 10, left: 10, bottom: 20),
                 child: SizedBox(
@@ -41,7 +43,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                     children: [
                       Container(
                         height: 50,
-                        width: 302,
+                        width: MediaQuery.of(context).size.width * 0.9,
                         decoration: BoxDecoration(
                           border: Border.all(color: Styles.greenColor),
                           borderRadius: BorderRadius.circular(25),
@@ -58,7 +60,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                               },
                               child: Container(
                                 height: 50,
-                                width: 150,
+                                width: MediaQuery.of(context).size.width * 0.45,
                                 decoration: BoxDecoration(
                                     color: isselected1
                                         ? Styles.greenColor
@@ -89,7 +91,8 @@ class _ArticleScreenState extends State<ArticleScreen> {
                               },
                               child: Container(
                                 height: 50,
-                                width: 150,
+                                width:
+                                    MediaQuery.of(context).size.width * 0.444,
                                 decoration: BoxDecoration(
                                     color: isselected2
                                         ? Styles.greenColor

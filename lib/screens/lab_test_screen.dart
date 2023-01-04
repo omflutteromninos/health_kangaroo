@@ -36,7 +36,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                            right: 20,
+                            right: 10,
                           ),
                           child: Icon(
                             Icons.shopping_cart_outlined,
@@ -57,77 +57,81 @@ class _LabTestScreenState extends State<LabTestScreen> {
             ),
             child: Column(
               children: [
-                TextField(
-                  decoration: InputDecoration(
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                    contentPadding: EdgeInsets.zero,
-                    fillColor: Colors.white,
-                    filled: true,
-                    prefixIcon: const Icon(
-                      Icons.search_sharp,
-                    ),
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(30)),
-                    label: Text(
-                      'Search for Lab Tests',
-                      style: GoogleFonts.poppins(color: Styles.greyColor),
-                    ),
-                  ),
-                ),
-                const Gap(20),
-                Container(
-                  padding: const EdgeInsets.only(
-                      left: 10, right: 10, top: 12, bottom: 12),
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Styles.greenColor,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Order with your  Prescription',
-                            style: GoogleFonts.poppins(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
-                          Text(
-                            'Upload prescription and  tell us what you need',
-                            style: GoogleFonts.redHatDisplay(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w300,
-                                color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const UploadScreen(),
-                              ));
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: 100,
-                          height: 35,
-                          decoration: BoxDecoration(
-                              color: Styles.bgColor,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: const Text('Upload'),
+                Column(
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        contentPadding: EdgeInsets.zero,
+                        fillColor: Colors.white,
+                        filled: true,
+                        prefixIcon: const Icon(
+                          Icons.search_sharp,
                         ),
-                      )
-                    ],
-                  ),
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(30)),
+                        label: Text(
+                          'Search for Lab Tests',
+                          style: GoogleFonts.poppins(color: Styles.greyColor),
+                        ),
+                      ),
+                    ),
+                    const Gap(20),
+                    Container(
+                        padding: const EdgeInsets.only(
+                            left: 10, right: 10, top: 12, bottom: 12),
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Styles.greenColor,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Order with your  Prescription',
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                ),
+                                Text(
+                                  'Upload prescription and  tell us what you need',
+                                  style: GoogleFonts.redHatDisplay(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const UploadScreen(),
+                                    ));
+                              },
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 100,
+                                height: 35,
+                                decoration: BoxDecoration(
+                                    color: Styles.bgColor,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Text('Upload'),
+                              ),
+                            )
+                          ],
+                        ))
+                  ],
                 ),
                 const Gap(20),
                 Row(
@@ -169,12 +173,13 @@ class _LabTestScreenState extends State<LabTestScreen> {
                     ),
                   ],
                 ),
+                const Gap(15),
                 Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                     //set border radius more than 50% of height and width to make circle
                   ),
-                  elevation: 5,
+                  elevation: 10,
                   child: Column(
                     children: [
                       Container(
@@ -183,7 +188,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                         child: Row(
                           children: [
                             const CircleAvatar(
-                              radius: 40,
+                              radius: 42,
                               foregroundImage: NetworkImage(
                                   'https://images.unsplash.com/photo-1612523138351-4643808db8f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
                             ),
@@ -205,6 +210,7 @@ class _LabTestScreenState extends State<LabTestScreen> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           const Text('Amit Kumar'),
+                                          const Gap(4),
                                           Text('Shivajinagar Branch',
                                               style: TextStyle(
                                                   fontSize: 12,

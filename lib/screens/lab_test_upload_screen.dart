@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hk/screens/health_locker_screen.dart';
+import 'package:hk/screens/bottom_nav.dart';
 import 'package:hk/widgets/left_heading_widget.dart';
 
 import '../utils/app_styles.dart';
@@ -86,7 +86,7 @@ class UploadScreenState extends State<UploadScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HealthLockerScreen(),
+                              builder: (context) => BottomNav(selectedIndex: 3),
                             ));
                       },
                       child: Column(
@@ -126,15 +126,18 @@ class UploadScreenState extends State<UploadScreen> {
                   child: Container(
                       padding: const EdgeInsets.all(15),
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.23,
                       child: Column(
                         children: [
-                          Text(
-                            'Easy process to Book Lab Test',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: Styles.greyColor,
-                                fontSize: 18),
+                          Container(
+                            padding: const EdgeInsets.only(left: 15),
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Easy process to Book Lab Test',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Styles.greyColor,
+                                  fontSize: 18),
+                            ),
                           ),
                           const Gap(20),
                           Row(

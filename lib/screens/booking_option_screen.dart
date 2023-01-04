@@ -65,6 +65,7 @@ class _BookingOptionScreenState extends State<BookingOptionScreen> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
                     child: RadioListTile(
+                      activeColor: Styles.greenColor,
                       toggleable: false,
                       title: const Text("General Booking"),
                       value: "general",
@@ -89,6 +90,7 @@ class _BookingOptionScreenState extends State<BookingOptionScreen> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
                     child: RadioListTile(
+                      activeColor: Styles.greenColor,
                       toggleable: false,
                       title: const Text("Referral Booking"),
                       value: "referral",

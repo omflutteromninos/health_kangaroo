@@ -35,7 +35,8 @@ class NursingCardWidget3 extends StatelessWidget {
                   ),
                   Text(
                     heading,
-                    style: const TextStyle(fontWeight: FontWeight.w400),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w400, fontSize: 15),
                     textAlign: TextAlign.left,
                   ),
                   Container(

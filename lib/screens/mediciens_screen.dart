@@ -34,42 +34,45 @@ class _MedicineScreenState extends State<MedicineScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Medicine'),
+            title: const Text('Medicine'),
             centerTitle: true,
             backgroundColor: const Color.fromARGB(0, 255, 255, 255),
             foregroundColor: Colors.black,
             elevation: 0,
-            actions: [
+            actions: const [
               Padding(
-                padding: const EdgeInsets.only(right: 15),
+                padding: EdgeInsets.only(right: 15),
                 child: Icon(Icons.shopping_cart_outlined),
               )
             ]),
-        body: Container(
+        body: SizedBox(
           height: size.height,
           width: size.width,
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                    height: size.height*0.885,
-                    width: size.width*0.9,
+                SizedBox(
+                    height: size.height * 0.885,
+                    width: size.width * 0.9,
                     child: Column(
                       children: [
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Container(
-                          height: 45,
+                          height: 55,
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
-                                  // spreadRadius: 5,
+                                  spreadRadius: 5,
                                   blurRadius: 20,
                                   color: Colors.grey.shade300)
                             ],
                             color: Colors.white,
                             border: Border.all(
-                                color: Colors.grey.shade300.withOpacity(0.7), width: 4),
-                            borderRadius: BorderRadius.circular(22.5),
+                                color: Colors.grey.shade300.withOpacity(0.7),
+                                width: 4),
+                            borderRadius: BorderRadius.circular(50),
                           ),
                           child: Row(
                             children: [
@@ -90,33 +93,40 @@ class _MedicineScreenState extends State<MedicineScreen> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 20,),
+                        const SizedBox(
+                          height: 30,
+                        ),
                         Container(
-                          height: size.height*0.14,
+                          height: size.height * 0.14,
                           decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(blurRadius: 10,color: Colors.grey)
-                            ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15)
-                          ),
+                              boxShadow: const [
+                                BoxShadow(blurRadius: 10, color: Colors.grey)
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15)),
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 right: 10, left: 18, top: 8, bottom: 8),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
-                                Text('Order Quickly with prescription',
-                                  style: Styles.mediumText.copyWith(fontSize: 16,fontWeight: FontWeight.w700),
+                                Text(
+                                  'Order Quickly with prescription',
+                                  style: Styles.mediumText.copyWith(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
                                 ),
-                                const SizedBox(height: 4,),
+                                const SizedBox(
+                                  height: 4,
+                                ),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'upload prescription and tell us what you\nneed.We do the rest!',
-                                      style: Styles.graySmallText.copyWith(fontWeight: FontWeight.bold),
+                                      'Upload prescription and tell us what you\nneed.We do the rest!',
+                                      style: Styles.graySmallText.copyWith(
+                                          fontWeight: FontWeight.normal),
                                     ),
                                     InkWell(
                                       onTap: () {
@@ -127,8 +137,8 @@ class _MedicineScreenState extends State<MedicineScreen> {
                                         }));
                                       },
                                       child: Container(
-                                        height: size.height*0.04,
-                                        width: size.width*0.2,
+                                        height: size.height * 0.04,
+                                        width: size.width * 0.2,
                                         decoration: BoxDecoration(
                                             color: Styles.greenColor,
                                             borderRadius:
@@ -142,10 +152,13 @@ class _MedicineScreenState extends State<MedicineScreen> {
                                     )
                                   ],
                                 ),
-                                const SizedBox(height: 6,),
+                                const SizedBox(
+                                  height: 6,
+                                ),
                                 Text(
                                   'Save 18% on medicines',
-                                  style: Styles.smallText.copyWith(fontWeight: FontWeight.w500)
+                                  style: Styles.smallText
+                                      .copyWith(fontWeight: FontWeight.w500)
                                       .copyWith(color: Styles.greenColor),
                                 ),
                               ],
@@ -180,16 +193,18 @@ class _MedicineScreenState extends State<MedicineScreen> {
                                   children:
                                       imgList.asMap().entries.map((entry) {
                                     return GestureDetector(
-                                      onTap: () => _controller
-                                          .animateToPage(entry.key),
+                                      onTap: () =>
+                                          _controller.animateToPage(entry.key),
                                       child: Container(
-                                        width: 6.0,
-                                        height: 6.0,
+                                        width: 12.0,
+                                        height: 12.0,
                                         margin: const EdgeInsets.symmetric(
                                             vertical: 8.0, horizontal: 4.0),
                                         decoration: BoxDecoration(
                                             shape: BoxShape.circle,
-                                            color:_current == entry.key? Colors.green:Colors.white),
+                                            color: _current == entry.key
+                                                ? Colors.green
+                                                : Colors.white),
                                       ),
                                     );
                                   }).toList(),
@@ -199,14 +214,15 @@ class _MedicineScreenState extends State<MedicineScreen> {
                           ],
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'Popular Categories',
-                              style: Styles.mediumText,
+                              style: Styles.mediumText
+                                  .copyWith(fontWeight: FontWeight.normal),
                             ),
                             Text(
                               'See All',
@@ -215,7 +231,7 @@ class _MedicineScreenState extends State<MedicineScreen> {
                           ],
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
                         Expanded(
                           child: Container(

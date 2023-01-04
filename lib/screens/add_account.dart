@@ -189,6 +189,7 @@ class CommonTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(vertical: 20),
           hintText: texthint,
           hintStyle: Styles.graySmallText.copyWith(fontSize: 14)),
     );
