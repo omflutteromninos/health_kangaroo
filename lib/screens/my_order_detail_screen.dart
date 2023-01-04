@@ -4,9 +4,6 @@ import 'package:hk/screens/track_order_screen.dart';
 
 import '../utils/app_styles.dart';
 import 'Pharmacy_View_Detail_screen.dart';
-import 'Pharmacy_order_status_screen.dart';
-import 'lab_order_status_screen.dart';
-import 'nursing_order_status_screen.dart';
 class MyOrdersDetailScreen extends StatefulWidget {
   const MyOrdersDetailScreen({Key? key}) : super(key: key);
 
@@ -42,79 +39,6 @@ class _MyOrdersDetailScreenState extends State<MyOrdersDetailScreen> {
         height: size.height*0.89,
         child: Column(
           children: [
-            Visibility(
-              visible: PhSelect,
-              child: InkWell(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return PharmacyOrderScreen();
-                  }));
-                },
-                child: Container(
-                  height: size.height*0.065,
-                  width: size.width*0.7,
-                  decoration: BoxDecoration(
-                    color: Styles.primaryColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text('Pharmacy Order Status',style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18),),
-                  ),
-                ),
-              ),
-            ),
-            Visibility(
-              visible: LabSelect,
-              child: InkWell(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return const LabOrderStatusScreen();
-                  }));
-                },
-                child: Container(
-                  height: size.height*0.065,
-                  width: size.width*0.7,
-                  decoration: BoxDecoration(
-                    color: Styles.primaryColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text('Lab Order Status',style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18),),
-                  ),
-                ),
-              ),
-            ),
-            Visibility(
-              visible: NurSelect,
-              child: InkWell(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return NursingOrderStatusScreen();
-                  }));
-                },
-                child: Container(
-                  height: size.height*0.065,
-                  width: size.width*0.7,
-                  decoration: BoxDecoration(
-                    color: Styles.primaryColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text('Nursing Order Status',style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18),),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10,),
             Container(
               height: 50,
               width: size.width*0.9,
@@ -180,7 +104,10 @@ class _MyOrdersDetailScreenState extends State<MyOrdersDetailScreen> {
                 ],
               )
             ),
-            Expanded(
+            Container(
+
+              width: size.width,
+              height: size.height*0.812,
               child: ListView.builder(
                 itemCount: 5,
                   itemBuilder: (context,int index){
@@ -623,9 +550,9 @@ class PharmacyWidget extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                     child: InkWell(
                       onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                          return PharmacyViewDetail();
-                        }));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return PharmacyViewDetail();
+                      }));
                       },
                       child: Container(
                         child: Center(child: Text('VIEW DETAILS',style: TextStyle(color: Styles.primaryColor),),),

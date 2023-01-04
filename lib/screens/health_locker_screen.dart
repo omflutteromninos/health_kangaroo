@@ -37,7 +37,7 @@ class _HealthLockerScreenState extends State<HealthLockerScreen> {
             Row(
               children: [
                 SizedBox(width: 10,),
-                Text('Enter Your 4 digits health locker pin',style: Styles.mediumText,),
+                Text('Enter Your 4 digits health locker pin',style: Styles.mediumBoldText,),
               ],
             ),
             const SizedBox(

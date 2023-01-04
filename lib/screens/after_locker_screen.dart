@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class AfterLoker extends StatefulWidget {
   const AfterLoker({Key? key}) : super(key: key);
 
@@ -11,7 +12,9 @@ class _AfterLokerState extends State<AfterLoker> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Locker Opened'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        title: const Text('Locker Opened'),
       ),
     );
   }

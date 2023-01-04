@@ -173,6 +173,18 @@ class _BottomNavState extends State<BottomNav> {
     }
   }
 
+  // bool keyboardOpen = false;
+  // @override
+  // void initState() {
+  //   super.initState();
+
+  //   KeyboardVisibilityNotification().addNewListener(
+  //     onChange: (bool visible) {
+  //       setState(() => keyboardOpen = visible);
+  //     },
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -339,7 +351,7 @@ class _BottomNavState extends State<BottomNav> {
           ),
           Text(
             'Profile',
-            style: TextStyle(color: index2 ? Colors.green : Colors.white),
+            style: TextStyle(color: index2 ? Styles.greenColor : Colors.white),
           ),
           const SizedBox(
             height: 5,
@@ -424,9 +436,9 @@ class _BottomNavState extends State<BottomNav> {
           selectedItemColor: Styles.greenColor,
           unselectedItemColor: Colors.grey,
           selectedLabelStyle:
-              const TextStyle(color: Colors.white, fontSize: 12),
+              const TextStyle(color: Colors.white, fontSize: 11),
           unselectedLabelStyle:
-              const TextStyle(color: Colors.white, fontSize: 12),
+              const TextStyle(color: Colors.white, fontSize: 11),
         ),
       ),
     );
