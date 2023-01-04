@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:hk/screens/BeforeTabbarScreen.dart';
+import 'package:hk/screens/bottom_nav.dart';
 
 import '../utils/image_constants.dart';
 
@@ -15,8 +15,10 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   startTimer() {
     Timer(const Duration(seconds: 2), () async {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (c) => const BeforeTabBarScreen()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (c) => BottomNav(
+                selectedIndex: 0,
+              )));
     });
   }
 
