@@ -102,16 +102,22 @@ class TabbarWidget extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: const [
                             CircleAvatar(
 
                               backgroundImage: NetworkImage('https://www.shutterstock.com/image-vector/50-coupon-promotion-sale-website-260nw-2039676860.jpg'),
                             ),
-                            Text('Coupon Code valued at 50 or 10% at health\nkangaroo',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: size.width*0.04
-                              )
+                            Expanded(
+                              child: FittedBox(
+                                fit: BoxFit.fitWidth,
+                                child: Text('Coupon Code valued at 50 or 10% at \n health kangaroo',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14
+                                  ),
+                                  overflow: TextOverflow.fade,
+                                ),
+                              ),
                             )
                           ],
                         ),

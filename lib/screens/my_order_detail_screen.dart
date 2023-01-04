@@ -262,7 +262,7 @@ class NursingWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('81425845665158587'),
-                          SizedBox(width: size.width*0.18,),
+                          SizedBox(width: size.width*0.1,),
                           Text('₹ 1000',style: TextStyle(color: Styles.primaryColor),),
                         ],
                       ),
@@ -484,7 +484,7 @@ class LabWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('81425845665158587'),
-                          SizedBox(width: size.width*0.18,),
+                          SizedBox(width: size.width*0.1,),
                           Text('₹ 500',style: TextStyle(color: Styles.primaryColor),),
                         ],
                       ),
@@ -594,7 +594,7 @@ class PharmacyWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('81425845665158587'),
-                          SizedBox(width: size.width*0.18,),
+                          SizedBox(width: size.width*0.1,),
                           Text('₹ 2400',style: TextStyle(color: Styles.primaryColor),),
                         ],
                       ),

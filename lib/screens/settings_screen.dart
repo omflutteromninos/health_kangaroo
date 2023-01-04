@@ -61,7 +61,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ],
               ),
               const SizedBox(
-                height: 10,
+                height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 20, left: 20),
@@ -180,21 +180,22 @@ class MyListile extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: SizedBox(
-        height: 45,
+        height: 55,
         child: ListTile(
           leading: Icon(
             myIcon,
+            size: 30,
             color: Styles.greenColor,
           ),
 
-          title: Text(myText),
+          title: Text(myText,style: TextStyle(fontSize: 16),),
           trailing: CircleAvatar(
-            radius: 10,
+            radius: 15,
             backgroundColor: Styles.greenColor,
             child: const Center(
               child: Icon(
                 Icons.arrow_forward_ios_sharp,
-                size: 10,
+                size: 12,
                 color: Colors.white,
               ),
             ),
