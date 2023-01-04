@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:hk/screens/track_order_screen.dart';
+import 'package:iphone_has_notch/iphone_has_notch.dart';
 
 import '../utils/app_styles.dart';
 import 'Pharmacy_View_Detail_screen.dart';
@@ -23,191 +24,200 @@ class _MyOrdersDetailScreenState extends State<MyOrdersDetailScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Text('My Order',style: Styles.largeText.copyWith(fontWeight: FontWeight.w400)),
-        centerTitle: true,
-        actions: [
-          InkWell(
-            onTap: (){
-              Navigator.pop(context);
-            },
-              child: Icon(Icons.highlight_remove_sharp,color: Colors.black,)),
-          SizedBox(width: 10,),
-        ],
-      ),
-      body: Container(
-        width: size.width,
-        height: size.height*0.89,
-        child: Column(
-          children: [
-            Visibility(
-              visible: PhSelect,
-              child: InkWell(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return PharmacyOrderScreen();
-                  }));
-                },
-                child: Container(
-                  height: size.height*0.065,
-                  width: size.width*0.7,
-                  decoration: BoxDecoration(
-                    color: Styles.primaryColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text('Pharmacy Order Status',style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18),),
-                  ),
-                ),
-              ),
-            ),
-            Visibility(
-              visible: LabSelect,
-              child: InkWell(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return const LabOrderStatusScreen();
-                  }));
-                },
-                child: Container(
-                  height: size.height*0.065,
-                  width: size.width*0.7,
-                  decoration: BoxDecoration(
-                    color: Styles.primaryColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text('Lab Order Status',style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18),),
-                  ),
-                ),
-              ),
-            ),
-            Visibility(
-              visible: NurSelect,
-              child: InkWell(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return NursingOrderStatusScreen();
-                  }));
-                },
-                child: Container(
-                  height: size.height*0.065,
-                  width: size.width*0.7,
-                  decoration: BoxDecoration(
-                    color: Styles.primaryColor,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text('Nursing Order Status',style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18),),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 50,
-              width: size.width*0.9,
-              decoration: BoxDecoration(
-                border: Border.all(width: 1,color: Styles.primaryColor),
-                  color: Colors.white,
-                borderRadius: BorderRadius.circular(25)
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: (){
-                      setState(() {
-                        PhSelect = true;
-                        LabSelect = false;
-                        NurSelect = false;
-                      });
-                    },
-                    child: Container(
-                        height: 50,
-                        width: size.width*0.3,
-                        decoration: BoxDecoration(
-                            color:PhSelect?  Colors.green:Colors.white,
-                            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),topLeft:  Radius.circular(25),)
-                        ),
-                        child: Center(child: Text('PHARMACY',style: TextStyle( color:PhSelect?  Colors.white:Colors.black,),)),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: (){
-                      setState(() {
-                        PhSelect = false;
-                        LabSelect = true;
-                        NurSelect = false;
-                      });
-                    },
-                    child: Container(
-                        height: 50,
-                        width: size.width*0.29,
-                        color:LabSelect?  Colors.green:Colors.white,
-                      child: Center(child: Text('LAB',style: TextStyle( color:LabSelect?  Colors.white:Colors.black,),)),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: (){
-                      setState(() {
-                        PhSelect = false;
-                        LabSelect = false;
-                        NurSelect = true;
-                      });
-                    },
-                    child: Container(
-                        height: 50,
-                        width: size.width*0.3,
-                        decoration: BoxDecoration(
-                            color:NurSelect?  Colors.green:Colors.white,
-                            borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topRight:  Radius.circular(25),)
-                        ),
-                      child: Center(child: Text('NURSING',style: TextStyle( color:NurSelect?  Colors.white:Colors.black,),)),
-                    ),
-                  ),
-                ],
-              )
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 5,
-                  itemBuilder: (context,int index){
-                if(PhSelect==true && LabSelect==false && NurSelect==false){
-                  return PharmacyWidget(size: size);
-                }
-                else if(PhSelect==false && LabSelect==true && NurSelect==false){
-                  return LabWidget(size: size);
-                }
-                else if(PhSelect==false && LabSelect==false && NurSelect==true){
-                  return NursingWidget(size: size);
-                }
-                else{
-                 return Text('');
-                }
+        appBar: AppBar(
+          backgroundColor: Styles.greenColor,
+          toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
 
-              }
-
-              ),
-            )
-
-          ],
+          // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
+          elevation: 0,
         ),
+        body: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.white,
+            title: Text('My Order',style: Styles.largeText.copyWith(fontWeight: FontWeight.w400)),
+            centerTitle: true,
+            actions: [
+              InkWell(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.highlight_remove_sharp,color: Colors.black,)),
+              SizedBox(width: 10,),
+            ],
+          ),
+          body: Container(
+            width: size.width,
+            height: size.height*0.89,
+            child: Column(
+              children: [
+                Visibility(
+                  visible: PhSelect,
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return PharmacyOrderScreen();
+                      }));
+                    },
+                    child: Container(
+                      height: size.height*0.065,
+                      width: size.width*0.7,
+                      decoration: BoxDecoration(
+                        color: Styles.primaryColor,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Center(
+                        child: Text('Pharmacy Order Status',style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18),),
+                      ),
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: LabSelect,
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return const LabOrderStatusScreen();
+                      }));
+                    },
+                    child: Container(
+                      height: size.height*0.065,
+                      width: size.width*0.7,
+                      decoration: BoxDecoration(
+                        color: Styles.primaryColor,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Center(
+                        child: Text('Lab Order Status',style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18),),
+                      ),
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: NurSelect,
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return NursingOrderStatusScreen();
+                      }));
+                    },
+                    child: Container(
+                      height: size.height*0.065,
+                      width: size.width*0.7,
+                      decoration: BoxDecoration(
+                        color: Styles.primaryColor,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Center(
+                        child: Text('Nursing Order Status',style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18),),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Container(
+                    height: 50,
+                    width: size.width*0.9,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 1,color: Styles.primaryColor),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25)
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              PhSelect = true;
+                              LabSelect = false;
+                              NurSelect = false;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: size.width*0.3,
+                            decoration: BoxDecoration(
+                                color:PhSelect?  Colors.green:Colors.white,
+                                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),topLeft:  Radius.circular(25),)
+                            ),
+                            child: Center(child: Text('PHARMACY',style: TextStyle( color:PhSelect?  Colors.white:Colors.black,),)),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              PhSelect = false;
+                              LabSelect = true;
+                              NurSelect = false;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: size.width*0.29,
+                            color:LabSelect?  Colors.green:Colors.white,
+                            child: Center(child: Text('LAB',style: TextStyle( color:LabSelect?  Colors.white:Colors.black,),)),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              PhSelect = false;
+                              LabSelect = false;
+                              NurSelect = true;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: size.width*0.3,
+                            decoration: BoxDecoration(
+                                color:NurSelect?  Colors.green:Colors.white,
+                                borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topRight:  Radius.circular(25),)
+                            ),
+                            child: Center(child: Text('NURSING',style: TextStyle( color:NurSelect?  Colors.white:Colors.black,),)),
+                          ),
+                        ),
+                      ],
+                    )
+                ),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: 5,
+                      itemBuilder: (context,int index){
+                        if(PhSelect==true && LabSelect==false && NurSelect==false){
+                          return PharmacyWidget(size: size);
+                        }
+                        else if(PhSelect==false && LabSelect==true && NurSelect==false){
+                          return LabWidget(size: size);
+                        }
+                        else if(PhSelect==false && LabSelect==false && NurSelect==true){
+                          return NursingWidget(size: size);
+                        }
+                        else{
+                          return Text('');
+                        }
 
-      ),
+                      }
 
+                  ),
+                )
+
+              ],
+            ),
+
+          ),
+
+        )
     );
   }
 }
@@ -307,7 +317,7 @@ class NursingWidget extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(12.0),
                                 child: Container(
-                                  height: 230,
+                                  height: 240,
                                   child: Column(
                                     children: [
                                       Row(
@@ -377,7 +387,7 @@ class NursingWidget extends StatelessWidget {
                                                     children: [
                                                       Icon(Icons.location_on,size: 18,color: Styles.primaryColor,),
                                                       SizedBox(width: 5,),
-                                                      Text('S.c.o-135,Sahibzada Ajit Singh\nNagar,Sahibzada Ajit Singh\nNagar, Punjab'),
+                                                      Text('S.c.o-135,Sahibzada Ajit\nSingh Nagar,Sahibzada Ajit\nSingh Nagar, Punjab'),
                                                     ],
                                                   ),
                                                 ],
@@ -552,6 +562,7 @@ class PharmacyWidget extends StatelessWidget {
   }) : super(key: key);
 
   final Size size;
+
 
   @override
   Widget build(BuildContext context) {

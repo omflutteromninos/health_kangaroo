@@ -30,7 +30,7 @@ class _BeforeTabBarScreenState extends State<BeforeTabBarScreen> {
             itemBuilder: (context,index){
           return BottomNav();
         }),
-      )
+      ),
     );
   }
 }

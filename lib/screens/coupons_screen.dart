@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:hk/utils/app_styles.dart';
+import 'package:iphone_has_notch/iphone_has_notch.dart';
 class CouponsScreen extends StatefulWidget {
   const CouponsScreen({Key? key}) : super(key: key);
 
@@ -15,54 +16,64 @@ class _CouponsScreenState extends State<CouponsScreen> {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black,
-          title: Text('Coupons And Offers'),
-          centerTitle: true,
-          bottom: TabBar(
-            isScrollable: true,
-            labelColor: Styles.primaryColor,
-            labelStyle: TextStyle(fontSize: 14,fontWeight: FontWeight.w500),
-            unselectedLabelColor: Colors.black,
-            indicatorColor: Styles.primaryColor,
-              tabs: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Text('MEDICINE'),
+          appBar: AppBar(
+            backgroundColor: Styles.greenColor,
+            toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
+
+            // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
+            elevation: 0,
+          ),
+          body: Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+              title: Text('Coupons And Offers'),
+              centerTitle: true,
+              bottom: TabBar(
+                  isScrollable: true,
+                  labelColor: Styles.primaryColor,
+                  labelStyle: TextStyle(fontSize: 14,fontWeight: FontWeight.w500),
+                  unselectedLabelColor: Colors.black,
+                  indicatorColor: Styles.primaryColor,
+                  tabs: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('MEDICINE'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('DOCTOR'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('HOSPITAL'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('LAB'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('NURSING'),
+                    ),
+                  ]),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Text('DOCTOR'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Text('HOSPITAL'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Text('LAB'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Text('NURSING'),
-            ),
-          ]),
-        ),
-        body: TabBarView(
-          children: [
-            TabbarWidget(size: size, length: 2,),
-            TabbarWidget(size: size, length: 6,),
-            TabbarWidget(size: size, length: 1,),
-            TabbarWidget(size: size, length: 2,),
-            TabbarWidget(size: size, length: 3,),
+            body: TabBarView(
+              children: [
+                TabbarWidget(size: size, length: 2,),
+                TabbarWidget(size: size, length: 6,),
+                TabbarWidget(size: size, length: 1,),
+                TabbarWidget(size: size, length: 2,),
+                TabbarWidget(size: size, length: 3,),
 
 
 
-          ],
-        ),
+              ],
+            ),
+          ),
       ),
+
     );
   }
 }

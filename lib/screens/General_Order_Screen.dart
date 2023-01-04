@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:iphone_has_notch/iphone_has_notch.dart';
 
 import '../utils/app_styles.dart';
 class GeneralOrderScreen extends StatefulWidget {
@@ -17,99 +18,109 @@ class _GeneralOrderScreenState extends State<GeneralOrderScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Styles.bgColor,
-      appBar: AppBar(
-        elevation: 0,
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-      ),
-      body: Container(
-        height: size.height,
-        width: size.width,
-        child: Column(
-          children: [
-            Container(
-              color: Colors.white,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      height: 50,
-                      width: size.width*0.9,
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1,color: Styles.primaryColor),
-                          borderRadius: BorderRadius.circular(25)
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap: (){
-                              setState(() {
-                                approvedSelect = true;
-                                pendingSelect = false;
-                                rejectedSelect = false;
-                              });
-                            },
-                            child: Container(
-                              height: 50,
-                              width: size.width*0.3,
-                              decoration: BoxDecoration(
-                                  color:approvedSelect?  Colors.green:Colors.white,
-                                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),topLeft:  Radius.circular(25),)
-                              ),
-                              child: Center(child: Text('APPROVED',style: TextStyle( color:approvedSelect?  Colors.white:Colors.black,),)),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: (){
-                              setState(() {
-                                approvedSelect = false;
-                                pendingSelect = true;
-                                rejectedSelect = false;
-                              });
-                            },
-                            child: Container(
-                              height: 50,
-                              width: size.width*0.29,
-                              color:pendingSelect?  Colors.green:Colors.white,
-                              child: Center(child: Text('PENDING',style: TextStyle( color:pendingSelect?  Colors.white:Colors.black,),)),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: (){
-                              setState(() {
-                                approvedSelect = false;
-                                pendingSelect = false;
-                                rejectedSelect = true;
-                              });
-                            },
-                            child: Container(
-                              height: 50,
-                              width: size.width*0.3,
-                              decoration: BoxDecoration(
-                                  color:rejectedSelect?  Colors.green:Colors.white,
-                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topRight:  Radius.circular(25),)
-                              ),
-                              child: Center(child: Text('REJECTED',style: TextStyle( color:rejectedSelect?  Colors.white:Colors.black,),)),
-                            ),
-                          ),
+        appBar: AppBar(
+          backgroundColor: Styles.greenColor,
+          toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
 
-
-
-                        ],
-                      )
-                  ),
-                ],
-              ),
-            ),
-            OnClickApprovedWidget(approvedSelect: approvedSelect),
-            OnClickPendingWidget(pendingSelect: pendingSelect, size: size),
-            OnClickRejectedWidget(rejectedSelect: rejectedSelect),
-          ],
+          // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
+          elevation: 0,
         ),
-      ),
+        body: Scaffold(
+          backgroundColor: Styles.bgColor,
+          appBar: AppBar(
+            elevation: 0,
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.white,
+          ),
+          body: Container(
+            height: size.height,
+            width: size.width,
+            child: Column(
+              children: [
+                Container(
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          height: 50,
+                          width: size.width*0.9,
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 1,color: Styles.primaryColor),
+                              borderRadius: BorderRadius.circular(25)
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    approvedSelect = true;
+                                    pendingSelect = false;
+                                    rejectedSelect = false;
+                                  });
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: size.width*0.3,
+                                  decoration: BoxDecoration(
+                                      color:approvedSelect?  Colors.green:Colors.white,
+                                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),topLeft:  Radius.circular(25),)
+                                  ),
+                                  child: Center(child: Text('APPROVED',style: TextStyle( color:approvedSelect?  Colors.white:Colors.black,),)),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    approvedSelect = false;
+                                    pendingSelect = true;
+                                    rejectedSelect = false;
+                                  });
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: size.width*0.29,
+                                  color:pendingSelect?  Colors.green:Colors.white,
+                                  child: Center(child: Text('PENDING',style: TextStyle( color:pendingSelect?  Colors.white:Colors.black,),)),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    approvedSelect = false;
+                                    pendingSelect = false;
+                                    rejectedSelect = true;
+                                  });
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: size.width*0.3,
+                                  decoration: BoxDecoration(
+                                      color:rejectedSelect?  Colors.green:Colors.white,
+                                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topRight:  Radius.circular(25),)
+                                  ),
+                                  child: Center(child: Text('REJECTED',style: TextStyle( color:rejectedSelect?  Colors.white:Colors.black,),)),
+                                ),
+                              ),
+
+
+
+                            ],
+                          )
+                      ),
+                    ],
+                  ),
+                ),
+                OnClickApprovedWidget(approvedSelect: approvedSelect),
+                OnClickPendingWidget(pendingSelect: pendingSelect, size: size),
+                OnClickRejectedWidget(rejectedSelect: rejectedSelect),
+              ],
+            ),
+          ),
+        )
     );
+
   }
 }
 

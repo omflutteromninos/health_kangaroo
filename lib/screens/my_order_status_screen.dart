@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hk/screens/setting_my_consultation_Screen.dart';
+import 'package:iphone_has_notch/iphone_has_notch.dart';
 
 import '../utils/app_styles.dart';
 class MyOrderStatusScreen extends StatefulWidget {
@@ -17,98 +18,107 @@ class _MyOrderStatusScreenState extends State<MyOrderStatusScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Styles.bgColor,
-      appBar: AppBar(
-        leading: const Text(''),
-        centerTitle: true,
-        elevation: 0,
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-        title: const Text('My Order Status'),
-      ),
-      body: Container(
-        width: size.width,
-        height: size.height*0.89,
-        child: Column(
-          children: [
-            Container(
-              color: Colors.white,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      height: 50,
-                      width: size.width*0.9,
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1,color: Styles.primaryColor),
-                          borderRadius: BorderRadius.circular(25)
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap: (){
-                              setState(() {
-                                reshSelect = true;
-                                rejSelect = false;
-                              });
-                            },
-                            child: Container(
-                              height: 50,
-                              width: size.width*0.445,
-                              decoration: BoxDecoration(
-                                  color:reshSelect?  Colors.green:Colors.white,
-                                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),topLeft:  Radius.circular(25),)
-                              ),
-                              child: Center(child: Text('RESCHEDULED',style: TextStyle( color:reshSelect?  Colors.white:Colors.black,),)),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: (){
-                              setState(() {
-                                reshSelect = false;
-                                rejSelect = true;
-                              });
-                            },
-                            child: Container(
-                              height: 50,
-                              width: size.width*0.445,
-                              decoration: BoxDecoration(
-                                  color:rejSelect?  Colors.green:Colors.white,
-                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topRight:  Radius.circular(25),)
-                              ),
-                              child: Center(child: Text('REJECTED',style: TextStyle( color:rejSelect?  Colors.white:Colors.black,),)),
-                            ),
-                          ),
-                        ],
-                      )
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: 2,
-                  itemBuilder: (context,int index){
-                    if(reshSelect==true && rejSelect==false){
-                      return RescheduleWidget();
-                    }
-                    else if(reshSelect==false && rejSelect==true){
-                      return RejectedWidget();
-                    }
-                    else{
-                      return Text('');
-                    }
+        appBar: AppBar(
+          backgroundColor: Styles.greenColor,
+          toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
 
-                  }
-
-              ),
-            )
-
-          ],
+          // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
+          elevation: 0,
         ),
+        body: Scaffold(
+          backgroundColor: Styles.bgColor,
+          appBar: AppBar(
+            leading: const Text(''),
+            centerTitle: true,
+            elevation: 0,
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.white,
+            title: const Text('My Order Status'),
+          ),
+          body: Container(
+            width: size.width,
+            height: size.height*0.89,
+            child: Column(
+              children: [
+                Container(
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          height: 50,
+                          width: size.width*0.9,
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 1,color: Styles.primaryColor),
+                              borderRadius: BorderRadius.circular(25)
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    reshSelect = true;
+                                    rejSelect = false;
+                                  });
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: size.width*0.445,
+                                  decoration: BoxDecoration(
+                                      color:reshSelect?  Colors.green:Colors.white,
+                                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),topLeft:  Radius.circular(25),)
+                                  ),
+                                  child: Center(child: Text('RESCHEDULED',style: TextStyle( color:reshSelect?  Colors.white:Colors.black,),)),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    reshSelect = false;
+                                    rejSelect = true;
+                                  });
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: size.width*0.445,
+                                  decoration: BoxDecoration(
+                                      color:rejSelect?  Colors.green:Colors.white,
+                                      borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topRight:  Radius.circular(25),)
+                                  ),
+                                  child: Center(child: Text('REJECTED',style: TextStyle( color:rejSelect?  Colors.white:Colors.black,),)),
+                                ),
+                              ),
+                            ],
+                          )
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: 2,
+                      itemBuilder: (context,int index){
+                        if(reshSelect==true && rejSelect==false){
+                          return RescheduleWidget();
+                        }
+                        else if(reshSelect==false && rejSelect==true){
+                          return RejectedWidget();
+                        }
+                        else{
+                          return Text('');
+                        }
 
-      ),
+                      }
+
+                  ),
+                )
+
+              ],
+            ),
+
+          ),
+        )
     );
   }
 }

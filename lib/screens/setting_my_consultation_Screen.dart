@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hk/screens/my_order_status_screen.dart';
 import 'package:hk/utils/app_styles.dart';
+import 'package:iphone_has_notch/iphone_has_notch.dart';
 
 class MyConsult extends StatefulWidget {
   const MyConsult({Key? key}) : super(key: key);
@@ -20,146 +21,155 @@ class _MyConsultState extends State<MyConsult> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: const Text(''),
-        centerTitle: true,
-        elevation: 0,
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-        title: const Text('My Consultations'),
-        actions: [
-          InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(right: 15),
-                child: Icon(
-                  Icons.highlight_remove,
-                  color: Styles.greenColor,
-                ),
-              ))
-        ],
-      ),
-      body: Container(
-        width: size.width,
-        height: size.height*0.89,
-        child: Column(
-          children: [
-            InkWell(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                  return MyOrderStatusScreen();
-                }));
-              },
-              child: Container(
-                height: size.height*0.065,
-                width: size.width*0.7,
-                decoration: BoxDecoration(
-                  color: Styles.primaryColor,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Center(
-                  child: Text('My Order Status',style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                  fontSize: 18),),
-                ),
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-                height: 50,
-                width: size.width*0.9,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1,color: Styles.primaryColor),
-                    borderRadius: BorderRadius.circular(25)
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: (){
-                        setState(() {
-                          upcomingSelect = true;
-                          currentSelect = false;
-                          historySelect = false;
-                        });
-                      },
-                      child: Container(
-                        height: 50,
-                        width: size.width*0.3,
-                        decoration: BoxDecoration(
-                            color:upcomingSelect?  Colors.green:Colors.white,
-                            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),topLeft:  Radius.circular(25),)
-                        ),
-                        child: Center(child: Text('UPCOMING',style: TextStyle( color:upcomingSelect?  Colors.white:Colors.black,),)),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: (){
-                        setState(() {
-                          upcomingSelect = false;
-                          currentSelect = true;
-                          historySelect = false;
-                        });
-                      },
-                      child: Container(
-                        height: 50,
-                        width: size.width*0.29,
-                        color:currentSelect?  Colors.green:Colors.white,
-                        child: Center(child: Text('CURRENT',style: TextStyle( color:currentSelect?  Colors.white:Colors.black,),)),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: (){
-                        setState(() {
-                          upcomingSelect = false;
-                          currentSelect = false;
-                          historySelect = true;
-                        });
-                      },
-                      child: Container(
-                        height: 50,
-                        width: size.width*0.3,
-                        decoration: BoxDecoration(
-                            color:historySelect?  Colors.green:Colors.white,
-                            borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topRight:  Radius.circular(25),)
-                        ),
-                        child: Center(child: Text('HISTORY',style: TextStyle( color:historySelect?  Colors.white:Colors.black,),)),
-                      ),
-                    ),
-                  ],
-                )
-            ),
-            SizedBox(height: 10,),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context,int index){
-                    if(upcomingSelect==true && currentSelect==false && historySelect==false){
-                      return UpcomingWidget();
-                    }
-                    else if(upcomingSelect==false && currentSelect==true && historySelect==false){
-                      return CurrentWidget(size: size);
-                    }
-                    else if(upcomingSelect==false && currentSelect==false && historySelect==true){
-                      return HistoryWidget(size: size,);
-                    }
-                    else{
-                      return Text('');
-                    }
+        appBar: AppBar(
+          backgroundColor: Styles.greenColor,
+          toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
 
-                  }
-
-              ),
-            )
-
-          ],
+          // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
+          elevation: 0,
         ),
+        body: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            leading: const Text(''),
+            centerTitle: true,
+            elevation: 0,
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.white,
+            title: const Text('My Consultations'),
+            actions: [
+              InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: Icon(
+                      Icons.highlight_remove,
+                      color: Styles.greenColor,
+                    ),
+                  ))
+            ],
+          ),
+          body: Container(
+            width: size.width,
+            height: size.height*0.89,
+            child: Column(
+              children: [
+                InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                      return MyOrderStatusScreen();
+                    }));
+                  },
+                  child: Container(
+                    height: size.height*0.065,
+                    width: size.width*0.7,
+                    decoration: BoxDecoration(
+                      color: Styles.primaryColor,
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Center(
+                      child: Text('My Order Status',style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18),),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Container(
+                    height: 50,
+                    width: size.width*0.9,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 1,color: Styles.primaryColor),
+                        borderRadius: BorderRadius.circular(25)
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              upcomingSelect = true;
+                              currentSelect = false;
+                              historySelect = false;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: size.width*0.3,
+                            decoration: BoxDecoration(
+                                color:upcomingSelect?  Colors.green:Colors.white,
+                                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),topLeft:  Radius.circular(25),)
+                            ),
+                            child: Center(child: Text('UPCOMING',style: TextStyle( color:upcomingSelect?  Colors.white:Colors.black,),)),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              upcomingSelect = false;
+                              currentSelect = true;
+                              historySelect = false;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: size.width*0.29,
+                            color:currentSelect?  Colors.green:Colors.white,
+                            child: Center(child: Text('CURRENT',style: TextStyle( color:currentSelect?  Colors.white:Colors.black,),)),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              upcomingSelect = false;
+                              currentSelect = false;
+                              historySelect = true;
+                            });
+                          },
+                          child: Container(
+                            height: 50,
+                            width: size.width*0.3,
+                            decoration: BoxDecoration(
+                                color:historySelect?  Colors.green:Colors.white,
+                                borderRadius: BorderRadius.only(bottomRight: Radius.circular(25),topRight:  Radius.circular(25),)
+                            ),
+                            child: Center(child: Text('HISTORY',style: TextStyle( color:historySelect?  Colors.white:Colors.black,),)),
+                          ),
+                        ),
+                      ],
+                    )
+                ),
+                SizedBox(height: 10,),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: 1,
+                      itemBuilder: (context,int index){
+                        if(upcomingSelect==true && currentSelect==false && historySelect==false){
+                          return UpcomingWidget();
+                        }
+                        else if(upcomingSelect==false && currentSelect==true && historySelect==false){
+                          return CurrentWidget(size: size);
+                        }
+                        else if(upcomingSelect==false && currentSelect==false && historySelect==true){
+                          return HistoryWidget(size: size,);
+                        }
+                        else{
+                          return Text('');
+                        }
 
-      ),
+                      }
+
+                  ),
+                )
+
+              ],
+            ),
+
+          ),
+        )
     );
   }
 }

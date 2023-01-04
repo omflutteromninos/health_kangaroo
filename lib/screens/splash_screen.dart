@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hk/screens/BeforeTabbarScreen.dart';
 import 'package:hk/screens/bottom_nav.dart';
+import 'package:iphone_has_notch/iphone_has_notch.dart';
 
+import '../utils/app_styles.dart';
 import '../utils/image_constants.dart';
 
 class MySplashScreen extends StatefulWidget {
@@ -33,13 +35,22 @@ class _MySplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: ColorConstants().primaryColor,
-      body: Center(
-        child: Image.asset(
-          ImageConstants().appLogo,
-          height: 100,
+        appBar: AppBar(
+          backgroundColor: Styles.greenColor,
+          toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
+
+          // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
+          elevation: 0,
         ),
-      ),
+        body: Scaffold(
+          //backgroundColor: ColorConstants().primaryColor,
+          body: Center(
+            child: Image.asset(
+              ImageConstants().appLogo,
+              height: 100,
+            ),
+          ),
+        )
     );
   }
 }

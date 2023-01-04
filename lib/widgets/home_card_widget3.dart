@@ -57,7 +57,7 @@ class HomeCard3 extends StatelessWidget {
                         Text(
                           heading,
                           style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600, fontSize: 13),
+                              fontWeight: FontWeight.w600, fontSize: 12),
                           overflow: TextOverflow.ellipsis,
                         ),
                         Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hk/utils/app_styles.dart';
+import 'package:iphone_has_notch/iphone_has_notch.dart';
 
 class AmbulanceBookingScreen extends StatefulWidget {
   const AmbulanceBookingScreen({Key? key}) : super(key: key);
@@ -15,112 +16,120 @@ class _AmbulanceBookingScreenState extends State<AmbulanceBookingScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Text(
-          'Ambulance Booking Screen',
-          style: Styles.mediumText.copyWith(fontSize: 20),
+        appBar: AppBar(
+          backgroundColor: Styles.greenColor,
+          toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
+
+          // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
+          elevation: 0,
         ),
-        centerTitle: true,
-      ),
-      body: Container(
-          color: Styles.bgColor,
-          height: size.height * 0.89,
-          width: size.width,
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 5,
-              ),
-              Container(
-                height: size.height * 0.07,
-                width: size.width * 0.95,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Styles.primaryColor),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          tripSelect = true;
-                          myBookSelect = false;
-                        });
-                      },
-                      child: Container(
-                        height: size.height * 0.07,
-                        width: size.width * 0.47,
-                        decoration: BoxDecoration(
-                            color:
+        body: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.white,
+            title: Text(
+              'Ambulance Booking Screen',
+              style: Styles.mediumText.copyWith(fontSize: 20),
+            ),
+            centerTitle: true,
+          ),
+          body: Container(
+              color: Styles.bgColor,
+              height: size.height * 0.89,
+              width: size.width,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: size.height * 0.07,
+                    width: size.width * 0.95,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Styles.primaryColor),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              tripSelect = true;
+                              myBookSelect = false;
+                            });
+                          },
+                          child: Container(
+                            height: size.height * 0.07,
+                            width: size.width * 0.47,
+                            decoration: BoxDecoration(
+                                color:
                                 tripSelect ? Styles.primaryColor : Colors.white,
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(25),
-                                bottomLeft: Radius.circular(25))),
-                        child: Center(
-                          child: Text(
-                            'TRIP DETAILS',
-                            style: TextStyle(
-                              color: tripSelect ? Colors.white : Colors.black,
+                                borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(25),
+                                    bottomLeft: Radius.circular(25))),
+                            child: Center(
+                              child: Text(
+                                'TRIP DETAILS',
+                                style: TextStyle(
+                                  color: tripSelect ? Colors.white : Colors.black,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          tripSelect = false;
-                          myBookSelect = true;
-                        });
-                      },
-                      child: Container(
-                        height: size.height * 0.07,
-                        width: size.width * 0.47,
-                        decoration: BoxDecoration(
-                            color: myBookSelect
-                                ? Styles.primaryColor
-                                : Colors.white,
-                            borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(25),
-                                bottomRight: Radius.circular(25))),
-                        child: Center(
-                          child: Text(
-                            'MY BOOKINGS',
-                            style: TextStyle(
-                              color: myBookSelect ? Colors.white : Colors.black,
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              tripSelect = false;
+                              myBookSelect = true;
+                            });
+                          },
+                          child: Container(
+                            height: size.height * 0.07,
+                            width: size.width * 0.47,
+                            decoration: BoxDecoration(
+                                color: myBookSelect
+                                    ? Styles.primaryColor
+                                    : Colors.white,
+                                borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(25),
+                                    bottomRight: Radius.circular(25))),
+                            child: Center(
+                              child: Text(
+                                'MY BOOKINGS',
+                                style: TextStyle(
+                                  color: myBookSelect ? Colors.white : Colors.black,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              SizedBox(
-                height: size.height * 0.798,
-                width: size.width,
-                child: ListView.builder(
-                    itemCount: 25,
-                    itemBuilder: (context, index) {
-                      if (tripSelect == true && myBookSelect == false) {
-                        return TripDetailWidget(size: size);
-                      } else if (tripSelect == false && myBookSelect == true) {
-                        return const MyBookingWidget();
-                      } else {
-                        return const Text('');
-                      }
-                    }),
-              ),
-            ],
-          )),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: 25,
+                        itemBuilder: (context, index) {
+                          if (tripSelect == true && myBookSelect == false) {
+                            return TripDetailWidget(size: size);
+                          } else if (tripSelect == false && myBookSelect == true) {
+                            return const MyBookingWidget();
+                          } else {
+                            return const Text('');
+                          }
+                        }),
+                  ),
+                ],
+              )),
+        )
     );
+
   }
 }
 
@@ -183,7 +192,7 @@ class MyBookingWidget extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    width: size.width * 0.07,
+                    width: 5,
                   ),
                   Column(
                     children: [
