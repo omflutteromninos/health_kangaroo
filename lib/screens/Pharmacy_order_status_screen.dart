@@ -3,15 +3,16 @@ import 'package:gap/gap.dart';
 import 'package:hk/widgets/ambulance_container_widget3.dart';
 
 import '../utils/app_styles.dart';
+import 'General_Order_Screen.dart';
 
-class MyOrderScreen extends StatefulWidget {
-  const MyOrderScreen({super.key});
+class PharmacyOrderScreen extends StatefulWidget {
+  const PharmacyOrderScreen({super.key});
 
   @override
-  State<MyOrderScreen> createState() => _MyOrderScreenState();
+  State<PharmacyOrderScreen> createState() => _PharmacyOrderScreenState();
 }
 
-class _MyOrderScreenState extends State<MyOrderScreen> {
+class _PharmacyOrderScreenState extends State<PharmacyOrderScreen> {
   @override
   Widget build(BuildContext context) {
     final size=MediaQuery.of(context).size;
@@ -50,7 +51,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                             ),
                           ),
                           const Text(
-                            'My Order Status',
+                            'Medicine Order',
                             style: TextStyle(
                                 fontWeight: FontWeight.w500, fontSize: 20),
                           ),
@@ -63,56 +64,28 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                     children: [
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const EmergencyOptScreen(),
-                          //     ));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const GeneralOrderScreen(),
+                              ));
                         },
                         child: AmbulanceContainer3(
-                          'Medical Orders',
+                          'General Orders',
                           Styles.greenColor,
                         ),
                       ),
-                      SizedBox(height: size.height*0.08,),
+                      SizedBox(height: size.height*0.06,),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const EmergencyOptScreen(),
-                          //     ));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const GeneralOrderScreen(),
+                              ));
                         },
                         child: AmbulanceContainer3(
-                          'Lab-Tests Orders',
-                          Styles.greenColor,
-                        ),
-                      ),
-                      SizedBox(height: size.height*0.08,),
-                      InkWell(
-                        onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const EmergencyOptScreen(),
-                          //     ));
-                        },
-                        child: AmbulanceContainer3(
-                          'Nursing Appointments',
-                          Styles.greenColor,
-                        ),
-                      ),
-                      SizedBox(height: size.height*0.08,),
-                      InkWell(
-                        onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const EmergencyOptScreen(),
-                          //     ));
-                        },
-                        child: AmbulanceContainer3(
-                          'Doctor Appointments',
+                          'Prescription Orders',
                           Styles.greenColor,
                         ),
                       ),

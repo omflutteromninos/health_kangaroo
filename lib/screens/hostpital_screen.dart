@@ -32,6 +32,7 @@ class _HospitalScreenState extends State<HospitalScreen> {
           foregroundColor: Colors.black,
           elevation: 0,
           title: const Text('Hospitals'),
+          centerTitle: true,
           actions: [
             InkWell(
               onTap: () {

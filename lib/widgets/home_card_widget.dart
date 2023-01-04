@@ -20,7 +20,7 @@ class HomeCard extends StatelessWidget {
         //set border radius more than 50% of height and width to make circle
       ),
       child: Container(
-          width: MediaQuery.of(context).size.width * 0.436,
+          width: MediaQuery.of(context).size.width * 0.46,
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
@@ -28,51 +28,51 @@ class HomeCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 50,
-                    height: 50,
+                    // width: MediaQuery.of(context).size.width * 0.12,
+                    // height: MediaQuery.of(context).size.height * 0.06,
                     decoration: BoxDecoration(
                         color: iconBgColor,
-                        borderRadius: BorderRadius.circular(5)),
+                        borderRadius: BorderRadius.circular(8)),
                     child: Image(
                       image: AssetImage(
                         iconImage,
                       ),
-                      height: 40,
+                      height: MediaQuery.of(context).size.height * 0.06,
                     ),
                   ),
                   Container(
-                      alignment: Alignment.center,
-                      width: 20,
-                      height: 20,
                       decoration: BoxDecoration(
                           color: iconBgColor,
                           borderRadius: BorderRadius.circular(20)),
-                      child: const Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        color: Colors.white,
-                        size: 14,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: const Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          color: Colors.white,
+                          size: 14,
+                        ),
                       ))
                 ],
               ),
-              const Gap(8),
+              const Gap(4),
               Align(
                   alignment: Alignment.centerLeft,
                   child: Text(heading,
-                      style: GoogleFonts.poppins(fontWeight: FontWeight.w500))),
-              const Gap(7),
+                      style: GoogleFonts.poppins(fontWeight: FontWeight.w600))),
+              const Gap(4),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  alignment: Alignment.center,
-                  height: 15,
-                  width: 90,
                   decoration: BoxDecoration(
                       color: textBgColor,
                       borderRadius: BorderRadius.circular(10)),
-                  child: Text(
-                    bottomText,
-                    style:
-                        GoogleFonts.poppins(fontSize: 9, color: Colors.white),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 4,right: 4,top: 2,bottom: 2),
+                    child: Text(
+                      bottomText,
+                      style:
+                          GoogleFonts.poppins(fontSize: 10, color: Colors.white),
+                    ),
                   ),
                 ),
               )

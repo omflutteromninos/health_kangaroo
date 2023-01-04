@@ -9,7 +9,7 @@ class AmbulanceContainer3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.1,
+      height: MediaQuery.of(context).size.height * 0.085,
       width: MediaQuery.of(context).size.width * 0.85,
       decoration: BoxDecoration(
         boxShadow: const [BoxShadow(blurRadius: 10, color: Colors.black26)],

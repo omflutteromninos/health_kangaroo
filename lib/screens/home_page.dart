@@ -6,6 +6,7 @@ import 'package:hk/screens/ambulance_screen.dart';
 import 'package:hk/screens/appointment_screen.dart';
 import 'package:hk/screens/hostpital_screen.dart';
 import 'package:hk/screens/lab_test_screen.dart';
+import 'package:hk/screens/notification_screen.dart';
 import 'package:hk/screens/nursing_services_screen.dart';
 import 'package:hk/utils/app_styles.dart';
 import 'package:hk/widgets/health_card_widget.dart';
@@ -49,22 +50,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Styles.bgColor,
       appBar: AppBar(
-        backgroundColor: Styles.greenColor,
-        toolbarHeight: IphoneHasNotch.hasNotch ? -12 : 0,
-
-        // toolbarHeight: Theme.of(context).platform == TargetPlatform.iOS ?  0 : 0,
-        elevation: 0,
-      ),
-      body: Scaffold(
+        centerTitle: true,
         backgroundColor: Styles.bgColor,
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Styles.bgColor,
-          elevation: 0,
-          foregroundColor: Colors.black,
-          actions: [
-            Container(
+        elevation: 0,
+        foregroundColor: Colors.black,
+        actions: [
+          InkWell(
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return NotificationScreen();
+              }));
+            },
+            child: Container(
               padding: const EdgeInsets.only(right: 10),
               alignment: Alignment.centerRight,
               width: 50,
@@ -74,174 +73,174 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.amber,
               ),
             ),
-          ],
-          leadingWidth: 80,
-          leading: Container(
-              padding: const EdgeInsets.only(left: 10),
-              child:
-                  const Image(image: AssetImage('assets/icons/hk_logo.png'))),
-          title: Column(
-            children: [
-              Text(
-                'Good Morning',
-                style: GoogleFonts.poppins(
-                    fontSize: 17,
-                    color: Styles.primaryColor,
-                    fontWeight: FontWeight.w600),
-              ),
-              const Text(
-                'Our Team',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
-              ),
-            ],
           ),
+        ],
+        leadingWidth: 80,
+        leading: Container(
+            padding: const EdgeInsets.only(left: 10),
+            child:
+            const Image(image: AssetImage('assets/icons/hk_logo.png'))),
+        title: Column(
+          children: [
+            Text(
+              'Good Morning',
+              style: GoogleFonts.poppins(
+                  fontSize: 17,
+                  color: Styles.primaryColor,
+                  fontWeight: FontWeight.w600),
+            ),
+            const Text(
+              'Our Team Members',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+            ),
+          ],
         ),
-        body: SingleChildScrollView(
-          child: Container(
-              color: Styles.bgColor,
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LabTestScreen(),
-                              ));
-                        },
-                        child: HomeCard(
-                            'assets/icons/9.png',
-                            Styles.yellowColor,
-                            Styles.yellowColor,
-                            'hiii Lab Test',
-                            'Safe & hygienic',
-                            Styles.yellowColor),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const MedicineScreen(),
-                              ));
-                        },
-                        child: HomeCard(
-                            'assets/icons/8.png',
-                            Styles.purpleColor,
-                            Styles.purpleColor,
-                            'Buy Medicines',
-                            'Doorstep Delivery',
-                            Styles.purpleColor),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const AppointmentScreen(),
-                              ));
-                        },
-                        child: HomeCard2(
-                            'assets/icons/7.png',
-                            Styles.blueColor,
-                            Styles.blueColor,
-                            'Dr. Appointment',
-                            'Online Doctors 24/7',
-                            Styles.blueColor),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const NursingScreen(),
-                              ));
-                        },
-                        child: HomeCard2(
-                            'assets/icons/6.png',
-                            Styles.greenColor,
-                            Styles.greenColor,
-                            'Nursing Services',
-                            'Nursing Services 24/7',
-                            Styles.greenColor),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const AmbulanceScreen(),
-                              ));
-                        },
-                        child: HomeCard3(
-                            'assets/icons/ambulance.png',
-                            Styles.redColor,
-                            Styles.redColor,
-                            'Ambulance',
-                            'Serve to save life',
-                            Styles.redColor),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HospitalScreen(),
-                              ));
-                        },
-                        child: HomeCard3(
-                            'assets/icons/15.png',
-                            Styles.lightBlueColor,
-                            Styles.lightBlueColor,
-                            'Hospital',
-                            '24/7 Hours',
-                            Styles.lightBlueColor),
-                      ),
-                    ],
-                  ),
-                  const Gap(20),
-                  SizedBox(
-                    // decoration: BoxDecoration(
-                    //     borderRadius: BorderRadius.circular(30)),
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    child: CarouselSlider(
-                      items: imageSliders,
-                      carouselController: _controller,
-                      options: CarouselOptions(
-                          viewportFraction: 1,
-                          height: 150,
-                          disableCenter: true,
-                          autoPlay: true,
-                          // enlargeCenterPage: true,
-                          aspectRatio: 4.0,
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                              _current = index;
-                            });
-                          }),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+            color: Styles.bgColor,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LabTestScreen(),
+                            ));
+                      },
+                      child: HomeCard(
+                          'assets/icons/9.png',
+                          Styles.yellowColor,
+                          Styles.yellowColor,
+                          'Book Lab Test',
+                          'Safe & hygienic',
+                          Styles.yellowColor),
                     ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MedicineScreen(),
+                            ));
+                      },
+                      child: HomeCard(
+                          'assets/icons/8.png',
+                          Styles.purpleColor,
+                          Styles.purpleColor,
+                          'Buy Medicines',
+                          'Doorstep Delivery',
+                          Styles.purpleColor),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AppointmentScreen(),
+                            ));
+                      },
+                      child: HomeCard2(
+                          'assets/icons/7.png',
+                          Styles.blueColor,
+                          Styles.blueColor,
+                          'Dr. Appointment',
+                          'Online Doctors 24/7',
+                          Styles.blueColor),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NursingScreen(),
+                            ));
+                      },
+                      child: HomeCard2(
+                          'assets/icons/6.png',
+                          Styles.greenColor,
+                          Styles.greenColor,
+                          'Nursing Services',
+                          'Nursing Services 24/7',
+                          Styles.greenColor),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AmbulanceScreen(),
+                            ));
+                      },
+                      child: HomeCard3(
+                          'assets/icons/ambulance.png',
+                          Styles.redColor,
+                          Styles.redColor,
+                          'Ambulance',
+                          'Serve to save life',
+                          Styles.redColor),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HospitalScreen(),
+                            ));
+                      },
+                      child: HomeCard3(
+                          'assets/icons/15.png',
+                          Styles.lightBlueColor,
+                          Styles.lightBlueColor,
+                          'Hospital',
+                          '24/7 Hours',
+                          Styles.lightBlueColor),
+                    ),
+                  ],
+                ),
+                Gap(8),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15,left: 15),
+                  child: CarouselSlider(
+                    items: imageSliders,
+                    carouselController: _controller,
+                    options: CarouselOptions(
+                        viewportFraction: 1,
+                        disableCenter: true,
+                        autoPlay: true,
+                        // enlargeCenterPage: true,
+                        aspectRatio: 3,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _current = index;
+                          });
+                        }),
                   ),
-                  const Divider(
-                    height: 20,
-                    thickness: 1,
-                  ),
-                  LeftHeading('Health Article'),
-                  const Gap(5),
-                  SingleChildScrollView(
+                ),
+                const Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: LeftHeading('Health Article'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
@@ -260,12 +259,18 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  const Divider(
-                    height: 20,
-                    thickness: 1,
-                  ),
-                  LeftHeading('Health Tracker'),
-                  Row(
+                ),
+                const Divider(
+                  height: 20,
+                  thickness: 1,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: LeftHeading('Health Tracker'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8,right: 8),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
@@ -283,10 +288,10 @@ class _HomePageState extends State<HomePage> {
                       TrackerCard('Pill Reminder', 'assets/icons/22.png',
                           'Set reminder now\nNever miss a pill'),
                     ],
-                  )
-                ],
-              )),
-        ),
+                  ),
+                )
+              ],
+            )),
       ),
     );
   }
