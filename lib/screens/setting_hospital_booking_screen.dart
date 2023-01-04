@@ -93,7 +93,7 @@ class _HospitalBookingScreenState extends State<HospitalBookingScreen> {
             ),
             Container(
               color: Colors.grey.shade300,
-              // height: size.height * 0.7655,
+              height: size.height * 0.7655,
               width: size.width,
             ),
           ],

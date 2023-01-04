@@ -23,52 +23,50 @@ class HomeCard2 extends StatelessWidget {
         //set border radius more than 50% of height and width to make circle
       ),
       child: Container(
-          width: MediaQuery.of(context).size.width * 0.436,
+          width: MediaQuery.of(context).size.width * 0.46,
           padding: const EdgeInsets.all(10),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 50,
-                    height: 50,
+                    // width: MediaQuery.of(context).size.width * 0.12,
+                    // height: MediaQuery.of(context).size.height * 0.06,
                     decoration: BoxDecoration(
                         color: iconBgColor,
-                        borderRadius: BorderRadius.circular(5)),
+                        borderRadius: BorderRadius.circular(8)),
                     child: Image(
                       image: AssetImage(
                         iconImage,
                       ),
-                      height: 40,
+                      height: MediaQuery.of(context).size.height * 0.06,
                     ),
                   ),
                   Container(
-                      alignment: Alignment.center,
-                      width: 20,
-                      height: 20,
                       decoration: BoxDecoration(
                           color: iconBgColor,
                           borderRadius: BorderRadius.circular(20)),
-                      child: const Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        color: Colors.white,
-                        size: 14,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: const Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          color: Colors.white,
+                          size: 14,
+                        ),
                       ))
                 ],
               ),
-              const Gap(8),
+              const Gap(6),
               Align(
                   alignment: Alignment.centerLeft,
                   child: Text(heading,
-                      style: GoogleFonts.poppins(fontWeight: FontWeight.w500))),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  bottomText,
-                  style: GoogleFonts.poppins(
-                      fontSize: 10, color: Styles.greenColor),
-                ),
+                      style: GoogleFonts.poppins(fontWeight: FontWeight.w600))),
+              Text(
+                bottomText,
+                style:
+                GoogleFonts.poppins(fontSize: 12,color: Styles.primaryColor),
               )
             ],
           )),

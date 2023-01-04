@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hk/screens/emergency_contacts_screen.dart';
+import 'package:hk/screens/coupons_screen.dart';
 import 'package:hk/screens/my_order_screen.dart';
 import 'package:hk/screens/setting_hospital_booking_screen.dart';
 import 'package:hk/screens/setting_my_consultation_Screen.dart';
@@ -8,6 +8,7 @@ import 'package:hk/screens/ambulance_booking_screen.dart';
 
 import '../utils/app_styles.dart';
 import 'my_order_detail_screen.dart';
+
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -32,20 +33,20 @@ class _SettingScreenState extends State<SettingScreen> {
       body: SingleChildScrollView(
         child: Container(
           width: size.width,
-          // height: size.height,
+          height: size.height,
           color: Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Gap(20),
+              const Gap(10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 29,
+                    radius: 26,
                     backgroundColor: Styles.greenColor,
                     child: const CircleAvatar(
-                      radius: 28,
+                      radius: 25,
                       backgroundImage: NetworkImage(
                           'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
                     ),
@@ -53,13 +54,14 @@ class _SettingScreenState extends State<SettingScreen> {
                   const SizedBox(
                     width: 10,
                   ),
-                  Text('Deepak Joshi',
-                      style: Styles.mediumText
-                          .copyWith(fontWeight: FontWeight.w500))
+                  Text(
+                    'Deepak Joshi',
+                    style: Styles.mediumText.copyWith(fontWeight: FontWeight.bold)
+                  )
                 ],
               ),
               const SizedBox(
-                height: 25,
+                height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 20, left: 20),
@@ -78,17 +80,17 @@ class _SettingScreenState extends State<SettingScreen> {
                           }));
                         },
                       ),
-                      MyListile(
-                        myIcon: Icons.card_giftcard,
-                        myText: 'My Orders Status',
-                        ontap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const MyOrderScreen(),
-                              ));
-                        },
-                      ),
+                      // MyListile(
+                      //   myIcon: Icons.card_giftcard,
+                      //   myText: 'My Orders Status',
+                      //   ontap: () {
+                      //     Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //           builder: (context) => const MyOrderScreen(),
+                      //         ));
+                      //   },
+                      // ),
                       MyListile(
                         myIcon: Icons.format_line_spacing,
                         myText: 'My Orders Details',
@@ -96,8 +98,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const MyOrdersDetailScreen(),
+                                builder: (context) => const MyOrdersDetailScreen(),
                               ));
                         },
                       ),
@@ -124,19 +125,17 @@ class _SettingScreenState extends State<SettingScreen> {
                       MyListile(
                         myIcon: Icons.phone,
                         myText: 'Emergency Contacts',
-                        ontap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const EmergencyContactsScreen(),
-                              ));
-                        },
+                        ontap: () {},
                       ),
                       MyListile(
                         myIcon: Icons.local_offer_outlined,
                         myText: 'Coupons & Offers',
-                        ontap: () {},
+                        ontap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const CouponsScreen();
+                          }));
+                        },
                       ),
                       MyListile(
                         myIcon: Icons.contactless,
@@ -181,24 +180,21 @@ class MyListile extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: SizedBox(
-        height: 55,
+        height: 45,
         child: ListTile(
           leading: Icon(
             myIcon,
-            size: 35,
             color: Styles.greenColor,
           ),
-          title: Text(
-            myText,
-            style: const TextStyle(fontSize: 16),
-          ),
+
+          title: Text(myText),
           trailing: CircleAvatar(
-            radius: 14,
+            radius: 10,
             backgroundColor: Styles.greenColor,
             child: const Center(
               child: Icon(
                 Icons.arrow_forward_ios_sharp,
-                size: 12,
+                size: 10,
                 color: Colors.white,
               ),
             ),

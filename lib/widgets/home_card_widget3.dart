@@ -21,83 +21,78 @@ class HomeCard3 extends StatelessWidget {
         //set border radius more than 50% of height and width to make circle
       ),
       child: Container(
-          decoration: BoxDecoration(
+          decoration: BoxDecoration( 
               border: Border.all(
                   width: 3, color: const Color.fromARGB(123, 201, 201, 201)),
               borderRadius: BorderRadius.circular(12)),
-          width: MediaQuery.of(context).size.width * 0.436,
-          padding: const EdgeInsets.all(10),
-          child: Column(
+          width: MediaQuery.of(context).size.width * 0.46,
+          padding: const EdgeInsets.only(top: 10,bottom: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Row(
+              Container(
+                decoration: BoxDecoration(
+                    color: iconBgColor,
+                    borderRadius: BorderRadius.circular(8)),
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Image(
+                    image: AssetImage(
+                      iconImage,
+                    ),
+                    height: MediaQuery.of(context).size.height * 0.04,
+                  ),
+                ),
+              ),
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(9),
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: iconBgColor,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Image(
-                      image: AssetImage(
-                        iconImage,
-                      ),
-                    ),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                '$heading  ',
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600, fontSize: 10),
-                                overflow: TextOverflow.ellipsis,
-                              )),
-                          Container(
-                              alignment: Alignment.center,
-                              width: 20,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                  color: iconBgColor,
-                                  borderRadius: BorderRadius.circular(20)),
+                    width: MediaQuery.of(context).size.width*0.26,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          heading,
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w600, fontSize: 13),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Container(
+                            decoration: BoxDecoration(
+                                color: iconBgColor,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
                               child: const Icon(
                                 Icons.arrow_forward_ios_outlined,
                                 color: Colors.white,
                                 size: 14,
-                              )),
-                        ],
-                      ),
-                      const Gap(6),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 3, vertical: 2),
-                          alignment: Alignment.center,
-
-                          // width: 75,
-                          decoration: BoxDecoration(
-                              color: textBgColor,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Text(
-                            bottomText,
-                            style: GoogleFonts.poppins(
-                                fontSize: 9, color: Colors.white),
-                          ),
-                        ),
-                      )
-                    ],
+                              ),
+                            ))
+                      ],
+                    ),
                   ),
-
+                  const Gap(6),
+                  Container(
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: textBgColor,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 5,left: 5,top: 2,bottom: 2),
+                      child: Text(
+                        bottomText,
+                        style: GoogleFonts.poppins(
+                            fontSize: 11, color: Colors.white),
+                      ),
+                    ),
+                  )
                 ],
               ),
+
             ],
           )),
     );

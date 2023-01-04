@@ -14,6 +14,7 @@ class MyOrderScreen extends StatefulWidget {
 class _MyOrderScreenState extends State<MyOrderScreen> {
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -73,7 +74,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                           Styles.greenColor,
                         ),
                       ),
-                      const Gap(20),
+                      SizedBox(height: size.height*0.08,),
                       InkWell(
                         onTap: () {
                           // Navigator.push(
@@ -87,7 +88,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                           Styles.greenColor,
                         ),
                       ),
-                      const Gap(20),
+                      SizedBox(height: size.height*0.08,),
                       InkWell(
                         onTap: () {
                           // Navigator.push(
@@ -101,7 +102,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                           Styles.greenColor,
                         ),
                       ),
-                      const Gap(20),
+                      SizedBox(height: size.height*0.08,),
                       InkWell(
                         onTap: () {
                           // Navigator.push(
@@ -112,20 +113,6 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                         },
                         child: AmbulanceContainer3(
                           'Doctor Appointments',
-                          Styles.greenColor,
-                        ),
-                      ),
-                      const Gap(20),
-                      InkWell(
-                        onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const EmergencyOptScreen(),
-                          //     ));
-                        },
-                        child: AmbulanceContainer3(
-                          'Ambulance Booking',
                           Styles.greenColor,
                         ),
                       ),

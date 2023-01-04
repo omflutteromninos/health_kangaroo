@@ -171,7 +171,7 @@ class _HospitalCardWidgetState extends State<HospitalCardWidget> {
               },
               child: Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
                       color: Styles.greenColor,
                       borderRadius: BorderRadius.circular(20)),

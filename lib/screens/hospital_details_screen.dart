@@ -15,6 +15,7 @@ class HospitalDetailsScreen extends StatefulWidget {
 class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -40,16 +41,16 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 200,
+                  height: size.height*0.25,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     image: DecorationImage(
                         image: NetworkImage(
-                            'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
+                            'https://cdn.britannica.com/12/130512-004-AD0A7CA4/campus-Riverside-Ottawa-The-Hospital-Ont.jpg'),
                         fit: BoxFit.cover),
                   ),
                 ),
-                const Gap(25),
+                SizedBox(height: size.height*0.025,),
                 const Text(
                   'Welcome to Civil Hospital',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
@@ -61,17 +62,17 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                 Text(
                   'Open 24 Hours',
                   style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                       color: Styles.greenColor),
                 ),
-                const Gap(20),
+                SizedBox(height: size.height*0.02,),
                 Card(
                   elevation: 5,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -80,7 +81,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                             const Text(
                               'ICU',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -93,7 +94,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                             const Text(
                               '0',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
                             )
@@ -104,7 +105,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                             const Text(
                               'General',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -117,7 +118,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                             const Text(
                               '0',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
                             )
@@ -128,7 +129,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                             const Text(
                               'Pharmacy',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -141,7 +142,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                             const Text(
                               '24 Hrs',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
                             )
@@ -151,7 +152,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                     ),
                   ),
                 ),
-                const Gap(20),
+                SizedBox(height: size.height*0.02,),
                 Card(
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -165,291 +166,31 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                           child: Text(
                             '   Multi Specialities',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16,
                               color: Styles.greenColor,
                               fontWeight: FontWeight.normal,
                             ),
                           ),
                         ),
-                        const Gap(10),
+                        SizedBox(height: size.height*0.02,),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Column(
-                                children: const [
-                                  Text('    '),
-                                  Text('    '),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Select Specialist',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  ),
-                                  const Gap(10),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Endocrinologists',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Gap(20),
-                              Column(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Emergency Medi...',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  ),
-                                  const Gap(10),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Gastroenterologists',
-                                      style: TextStyle(
-                                          overflow: TextOverflow.ellipsis,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Gap(20),
-                              Column(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Hematologists',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  ),
-                                  const Gap(10),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Oncologists',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Gap(20),
-                              Column(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Ophthalmologists',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  ),
-                                  const Gap(10),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Pediatricians',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Gap(20),
-                              Column(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Psychiatrists',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  ),
-                                  const Gap(10),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'Heart Specialist',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Gap(20),
-                              Column(
-                                children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 15),
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                        color: const Color.fromARGB(
-                                            48, 166, 214, 167),
-                                        border: Border.all(
-                                            width: 2, color: Styles.greenColor),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    child: Text(
-                                      'dfdfdf',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          color: Styles.greenColor),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const Gap(20),
+                              SizedBox(width: size.width*0.03,),
+                              SchroableWidget(texta: 'Select Specialist', textb: 'Endocrinologists',),
+                              SizedBox(width: size.width*0.04,),
+                              SchroableWidget(texta: 'Emergency Medicine', textb: 'Gastroenterologists',),
+                              SizedBox(width: size.width*0.04,),
+                              SchroableWidget(texta: 'Hematologists', textb: 'Oncologists',),
+                              SizedBox(width: size.width*0.04,),
+                              SchroableWidget(texta: 'Ophthalmologists', textb: 'Pediatricians',),
+                              SizedBox(width: size.width*0.04,),
+                              SchroableWidget(texta: 'Psychiatrists', textb: 'Heart Specialist',),
+                              SizedBox(width: size.width*0.04,),
+                              SchroableWidget(texta: 'Dermatologists', textb: 'next ',),
+                              SizedBox(width: size.width*0.04,),
                             ],
                           ),
                         ),
@@ -457,7 +198,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                     ),
                   ),
                 ),
-                const Gap(20),
+                SizedBox(height: size.height*0.02,),
                 Card(
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -465,123 +206,124 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                   child: Padding(
                     padding:
                         const EdgeInsets.only(top: 20, left: 20, bottom: 20),
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Cashless Insurance',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Styles.greenColor,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Cashless Insurance',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Styles.greenColor,
+                          fontWeight: FontWeight.normal,
                         ),
-                        const Gap(10),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                              ],
-                            ),
-                            const Gap(30),
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                              ],
-                            ),
-                            const Gap(30),
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                              ],
-                            ),
-                            const Gap(30),
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(30)),
-                                  child: const Text('2'),
-                                ),
-                              ],
-                            ),
-                            const Gap(30),
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                              ],
-                            ),
-                            const Gap(30),
-                          ],
-                        ),
-                      ],
+                      ),
                     ),
+                    // child: Column(
+                    //   children: [
+                    //
+                    //     const Gap(10),
+                    //     Row(
+                    //       crossAxisAlignment: CrossAxisAlignment.start,
+                    //       children: [
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(30)),
+                    //               child: const Text('2'),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //       ],
+                    //     ),
+                    //   ],
+                    // ),
                   ),
                 ),
-                const Gap(20),
+                SizedBox(height: size.height*0.02,),
                 Card(
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -589,125 +331,136 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                   child: Padding(
                     padding:
                         const EdgeInsets.only(top: 20, left: 20, bottom: 20),
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Non-Cashless Insurance',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Styles.greenColor,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Non-Cashless Insurance',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Styles.greenColor,
+                          fontWeight: FontWeight.normal,
                         ),
-                        const Gap(10),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                              ],
-                            ),
-                            const Gap(30),
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                              ],
-                            ),
-                            const Gap(30),
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                              ],
-                            ),
-                            const Gap(30),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(30)),
-                                  child: const Text('BAJAJ'),
-                                ),
-                              ],
-                            ),
-                            const Gap(30),
-                            Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: const Text(' '),
-                                ),
-                                const Gap(20),
-                              ],
-                            ),
-                            const Gap(30),
-                          ],
-                        ),
-                      ],
+                      ),
                     ),
+                    // child: Column(
+                    //   children: [
+                    //     Align(
+                    //       alignment: Alignment.centerLeft,
+                    //       child: Text(
+                    //         'Non-Cashless Insurance',
+                    //         style: TextStyle(
+                    //           fontSize: 18,
+                    //           color: Styles.greenColor,
+                    //           fontWeight: FontWeight.normal,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     const Gap(10),
+                    //     Row(
+                    //       crossAxisAlignment: CrossAxisAlignment.start,
+                    //       children: [
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //         Column(
+                    //           mainAxisAlignment: MainAxisAlignment.start,
+                    //           crossAxisAlignment: CrossAxisAlignment.center,
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(30)),
+                    //               child: const Text('BAJAJ'),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //         Column(
+                    //           children: [
+                    //             Container(
+                    //               padding: const EdgeInsets.all(10),
+                    //               decoration: BoxDecoration(
+                    //                   color: Colors.black12,
+                    //                   borderRadius: BorderRadius.circular(15)),
+                    //               child: const Text(' '),
+                    //             ),
+                    //             const Gap(20),
+                    //           ],
+                    //         ),
+                    //         const Gap(30),
+                    //       ],
+                    //     ),
+                    //   ],
+                    // ),
                   ),
                 ),
-                const Gap(20),
+                SizedBox(height: size.height*0.02,),
                 Card(
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -743,7 +496,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                     ),
                   ),
                 ),
-                const Gap(20),
+                SizedBox(height: size.height*0.02,),
                 InkWell(
                   onTap: () {
                     Navigator.push(
@@ -768,10 +521,73 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                     ),
                   ),
                 ),
-                const Gap(20),
+                SizedBox(height: size.height*0.02,),
               ],
             )),
       ),
+    );
+  }
+}
+
+class SchroableWidget extends StatelessWidget {
+  SchroableWidget({
+    Key? key,
+    required this.texta,
+    required this.textb,
+  }) : super(key: key);
+  String texta;
+  String textb;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(
+              horizontal: 10, vertical: 12),
+          width:
+              MediaQuery.of(context).size.width * 0.4,
+          decoration: BoxDecoration(
+              color: const Color.fromARGB(
+                  48, 166, 214, 167),
+              border: Border.all(
+                  width: 1, color: Styles.greenColor),
+              borderRadius:
+                  BorderRadius.circular(10)),
+          child: Text(
+            texta,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Styles.greenColor),
+          ),
+        ),
+        const Gap(10),
+        Container(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(
+              horizontal: 10, vertical: 12),
+          width:
+              MediaQuery.of(context).size.width * 0.4,
+          decoration: BoxDecoration(
+              color: const Color.fromARGB(
+                  48, 166, 214, 167),
+              border: Border.all(
+                  width: 1, color: Styles.greenColor),
+              borderRadius:
+                  BorderRadius.circular(10)),
+          child: Text(
+            textb,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Styles.greenColor),
+          ),
+        )
+      ],
     );
   }
 }
