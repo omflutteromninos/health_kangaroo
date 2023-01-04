@@ -137,7 +137,7 @@ class TabbarWidget extends StatelessWidget {
                                 borderRadius: BorderRadius.all(Radius.circular(12)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(5.0),
-                                  child: Text('PHAR4233',style: Styles.mediumBoldText,),
+                                  child: Text('PHAR4233',style: TextStyle(fontWeight: FontWeight.bold),),
                                 ),
                               ),
                             ),

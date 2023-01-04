@@ -233,10 +233,10 @@ class TripDetailWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Driver Name: gaaak',style: Styles.mediumBoldText,),
+                Text('Driver Name: gaaak',style: Styles.mediumText,),
                 Text('Ambulance No: 1234568'),
                 Text('Hospital Name: Civil Hospital'),
-                Text('Price : 10025.21',style: Styles.mediumBoldText,),
+                Text('Price : 10025.21',style: Styles.mediumText,),
               ],
             )
           ],
